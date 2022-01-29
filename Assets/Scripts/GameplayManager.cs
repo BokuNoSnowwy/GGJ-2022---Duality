@@ -6,8 +6,11 @@ public class GameplayManager : MonoBehaviour
 {
     private bool _isPaused;
     public GameObject pauseMenu;
+    public GameObject optionMenu;
 
     public static GameplayManager Instance;
+
+    private AudioManager _audioManager;
 
     void Awake()
     {
@@ -17,6 +20,11 @@ public class GameplayManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    void Start()
+    {
+        _audioManager = AudioManager.Instance;
     }
     
     
@@ -46,9 +54,22 @@ public class GameplayManager : MonoBehaviour
     {
         _isPaused = false;
         pauseMenu.SetActive(false);
+        optionMenu.SetActive(false);
         Time.timeScale = 1f;
         
         //TODO Deactivate Pause Menu
+    }
+
+    public void OpenOption()
+    {
+        optionMenu.SetActive(true);
+        pauseMenu.SetActive(false);
+    }
+    
+    public void CloseOption()
+    {
+        optionMenu.SetActive(false);
+        pauseMenu.SetActive(true);
     }
 
     public void Quit()
