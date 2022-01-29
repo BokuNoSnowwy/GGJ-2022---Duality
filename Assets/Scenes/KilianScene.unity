@@ -564,6 +564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cfb0e5e0f6d33014b991773e27af9df7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameTimer: 15
   keyCodeList: 6100000062000000630000006400000065000000
   keyToMash: 0
   timerBeforeKeyChange: 2

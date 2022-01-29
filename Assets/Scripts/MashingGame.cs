@@ -5,6 +5,10 @@ using UnityEngine.UI;
 
 public class MashingGame : MonoBehaviour
 {
+    [Header("Game Rules")] 
+    public float gameTimer;
+    private bool _hasWin;
+    
     [Header("Mashing")]
     public List<KeyCode> keyCodeList = new List<KeyCode>();
     public KeyCode keyToMash;
@@ -39,6 +43,20 @@ public class MashingGame : MonoBehaviour
             _chrono = 0f;
         }
 
+        if (!_hasWin)
+        {
+            gameTimer -= Time.deltaTime;
+        }
+
+        if (jauge.value >= jauge.maxValue)
+        {
+            Victory();
+        }
+
+        if (gameTimer <= 0f)
+        {
+            Lose();
+        }
     }
 
     KeyCode NewKey()
@@ -64,11 +82,23 @@ public class MashingGame : MonoBehaviour
             }
             else
             {
-                Debug.Log("Wrong Touch");
-                jauge.value -= valueToWithdraw;
+                if(e.keyCode != KeyCode.Escape)
+                {
+                    Debug.Log("Wrong Touch");
+                    jauge.value -= valueToWithdraw;
+                }
             }
         }
-        
-        
+    }
+
+    public void Victory()
+    {
+        Debug.Log("Victory");
+        _hasWin = true;
+    }
+
+    public void Lose()
+    {
+        Debug.Log("Lose");
     }
 }
