@@ -55,13 +55,17 @@ public class LevelScriptable : ScriptableObject
     public int pointLoseOnMiss;
     
     public float timerLevelNight;
-    //TODO Create an index in the level manager that will check the touch the player will need to press
-    public List<KeyCode> keyCodesList = new List<KeyCode>();
 
     public AudioClip audioLevelNight;
     //TODO Create an index in the level manager that play the clip depending on the index
     public List<AudioClip> sfxNightList = new List<AudioClip>();
 
+    [Header("Mashing Game")]
+    public List<KeyCode> keyCodesList = new List<KeyCode>();
+    public float timerBeforeKeyChange;
+    public float ratioOverTime;
+    public int valueToWithdraw;
+    
     [Header("Timer End Night Part")]
     public float timerVictoryAnim;
     public float timerLoseAnim;

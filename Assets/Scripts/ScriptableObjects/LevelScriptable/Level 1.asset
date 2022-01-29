@@ -43,8 +43,11 @@ MonoBehaviour:
   barFullNb: 30
   pointLoseOnMiss: 0
   timerLevelNight: 10
-  keyCodesList: 61000000
   audioLevelNight: {fileID: 8300000, guid: a39157389c9cb3643b730f360cf95947, type: 3}
   sfxNightList: []
-  timerVictoryAnim: 0
-  timerLoseAnim: 0
+  keyCodesList: 7a00000065000000
+  timerBeforeKeyChange: 2
+  ratioOverTime: 0.1
+  valueToWithdraw: 1
+  timerVictoryAnim: 5
+  timerLoseAnim: 5

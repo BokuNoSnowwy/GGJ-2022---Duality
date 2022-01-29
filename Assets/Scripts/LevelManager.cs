@@ -16,6 +16,8 @@ public class LevelManager : MonoBehaviour
     public LevelScriptable actualLevel;
     public static LevelManager Instance;
 
+    public MashingGame mashingGame;
+    
     [Header("Audio")] 
     public AudioSource bgmSource;
     public List<AudioSource> sfxSourceList = new List<AudioSource>();
@@ -33,7 +35,6 @@ public class LevelManager : MonoBehaviour
     //level timer management
     public bool onLevelTimer;
     public float timerLevel;
-    public int barFullNb;
     public List<KeyCode> keyCodesList = new List<KeyCode>();
     
     //Audio Source
@@ -57,11 +58,7 @@ public class LevelManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
+        
         indexLevel = 1;
         stateDay = StateDay.Day;
         SetupValuesFromLevelScriptable(GetLevelFromIndex(indexLevel));
@@ -70,6 +67,12 @@ public class LevelManager : MonoBehaviour
             PlayScene();
             fadePanel.gameObject.SetActive(false);
         });
+    }
+    
+    // Start is called before the first frame update
+    void Start()
+    {
+        
     }
 
     // Update is called once per frame
@@ -95,6 +98,7 @@ public class LevelManager : MonoBehaviour
                         if (timerEndNight <= 0)
                         {
                             NextScene();
+                            mashingGame.HideSlider(true);
                             onAnimationEndNight = false;
                         }
                     }
@@ -117,6 +121,7 @@ public class LevelManager : MonoBehaviour
     private void SetupValuesFromLevelScriptable(LevelScriptable levelScriptable)
     {
         actualLevel = levelScriptable;
+
         switch (stateDay)
         {
             case StateDay.Day :
@@ -129,11 +134,8 @@ public class LevelManager : MonoBehaviour
 
         //Button Masher
         //TODO Utiliser le truc de kilian 
-        barFullNb = actualLevel.barFullNb;
+        //barFullNb = actualLevel.barFullNb;
         keyCodesList = actualLevel.keyCodesList;
-        keyCodesList = actualLevel.keyCodesList;
-        
-
     }
 
     private void PlayScene()
@@ -178,8 +180,17 @@ public class LevelManager : MonoBehaviour
             ChangeStateDay();
             SetupValuesFromLevelScriptable(GetLevelFromIndex(indexLevel));
             PlayScene();
+            
         }));
-        sequence.Append(fadePanel.DOFade(0, 1f).SetEase(Ease.InQuint)).OnComplete(()=>fadePanel.gameObject.SetActive(false));
+        sequence.Append(fadePanel.DOFade(0, 1f).SetEase(Ease.InQuint)).OnComplete(()=>
+        {
+            fadePanel.gameObject.SetActive(false);
+            if (stateDay == StateDay.Night)
+            {
+                Debug.Log("MashingGame Start");
+                mashingGame.StartNight();
+            }
+        });
     }
 
 
@@ -254,7 +265,6 @@ public class LevelManager : MonoBehaviour
     //Create Sprites that will play animations
     private void CreateAnimatedSprites()
     {
-        Debug.Log(stateDay);
         foreach (var element in GetSceneAnimationsList())
         {
             GameObject sprite = Instantiate(prefabSceneSpriteAnimation);
@@ -305,6 +315,8 @@ public class LevelManager : MonoBehaviour
 
     public void PlayVictoryAnim()
     {
+        timerEndNight = actualLevel.timerVictoryAnim;
+        onAnimationEndNight = true;
         foreach (var spriteGO in spriteSceneAnimationList)
         {
             spriteGO.GetComponent<AnimatedSprite>().PlayVictoryClip();
@@ -313,6 +325,9 @@ public class LevelManager : MonoBehaviour
 
     public void PlayLoseAnim()
     {
+        timerEndNight = actualLevel.timerLoseAnim;
+        onAnimationEndNight = true;
+        
         foreach (var spriteGO in spriteSceneAnimationList)
         {
             spriteGO.GetComponent<AnimatedSprite>().PlayLoseClip();
