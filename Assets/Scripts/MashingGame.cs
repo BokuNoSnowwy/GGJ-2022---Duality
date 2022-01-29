@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -7,7 +8,8 @@ using UnityEngine.UI;
 public enum GameState
 {
     OutGame,
-    InGame
+    InGame,
+    PauseGame,
 }
 
 public class MashingGame : MonoBehaviour
@@ -15,7 +17,7 @@ public class MashingGame : MonoBehaviour
     [Header("Game Rules")]
     [Tooltip("Le temps que dure la nuit")] public float gameTimer;
     private bool _hasWon;
-    [Tooltip("État du jeu")] private GameState actualState;
+    [Tooltip("État du jeu")] public GameState actualState;
     [Tooltip("Décompte avant le commencement du jeu")] public float startGameTimer;
     [Tooltip("Texte du décompte (temporaire)")] public TMP_Text startGameTxt;
     
@@ -30,17 +32,21 @@ public class MashingGame : MonoBehaviour
     [Tooltip("La valeur à ajouter si on appuie sur la bonne touche")] public float valueToAdd;
     [Tooltip("La valeur à retirer si on appuie sur la mauvaise touche")] public float valueToWithdraw;
     [Tooltip("A quel point la jauge descend si on ne fait rien")] public float ratioOverTime;
+
+    private LevelManager _levelManager;
     
     void Start()
     {
-        actualState = GameState.OutGame;
-        
+        /*
         if (keyCodeList.Count > 0)
         {
             int randomInt = Random.Range(0, keyCodeList.Count);
             keyToMash = keyCodeList[randomInt];
             keyCodeList.RemoveAt(randomInt);
         }
+        */
+        _levelManager = LevelManager.Instance;
+        actualState = GameState.PauseGame;
     }
 
     public void StartNight()
@@ -49,24 +55,25 @@ public class MashingGame : MonoBehaviour
         _hasWon = false;
 
         _chrono = 0f;
+        HideSlider(false);
         jauge.value = 0f;
         startGameTimer = 3f;
         startGameTxt.text = null;
+        gameTimer = _levelManager.actualLevel.timerLevelNight - startGameTimer;
         //TODO Récup valeurs du LevelManager
-        //timerBeforeKeyChange = Le temps avant chaque changement de lettre
-        //jauge.maxValue = la valeur à atteindre
-        //ratioOverTime = à quel point la jauge descend si on ne fait rien
-        //valueToAdd = la valeur à ajouter si on appuie sur la bonne touche
-        //valueToWithdraw = la valeur à retirer si on appuie sur la mauvaise touche
+        timerBeforeKeyChange = _levelManager.actualLevel.timerBeforeKeyChange;
+        jauge.maxValue = _levelManager.actualLevel.barFullNb;
+        ratioOverTime = _levelManager.actualLevel.ratioOverTime;
+        valueToAdd = 1;
+        valueToWithdraw = _levelManager.actualLevel.valueToWithdraw;
         
+        keyCodeList = new List<KeyCode>(_levelManager.actualLevel.keyCodesList);
         int randomInt = Random.Range(0, keyCodeList.Count);
         keyToMash = keyCodeList[randomInt];
         keyCodeList.RemoveAt(randomInt);
-        
-        
     }
 
-    void LaunchGame()
+    public void LaunchGame()
     {
         startGameTxt.text = null;
         startGameTimer = 3f;
@@ -125,21 +132,47 @@ public class MashingGame : MonoBehaviour
     void OnGUI()
     {
         Event e = Event.current;
-    
-        if (e.type == EventType.KeyUp)
+
+        if (actualState == GameState.InGame)
         {
-            if (e.keyCode == keyToMash)
+            if (e.type == EventType.KeyUp)
             {
-                Debug.Log("Nice touch");
-                jauge.value += valueToAdd;
-            }
-            else
-            {
-                if(e.keyCode != KeyCode.Escape)
+                if (e.keyCode == keyToMash)
                 {
-                    Debug.Log("Wrong Touch");
-                    jauge.value -= valueToWithdraw;
+                    Debug.Log("Nice touch");
+                    jauge.value += valueToAdd;
                 }
+                else
+                {
+                    if(e.keyCode != KeyCode.Escape)
+                    {
+                        Debug.Log("Wrong Touch");
+                        jauge.value -= valueToWithdraw;
+                    }
+                }
+            }
+        }
+    }
+
+    public void HideSlider(bool value)
+    {
+        if (!jauge.gameObject.activeSelf)
+        {
+            jauge.gameObject.SetActive(true);
+        }
+        if (value)
+        {
+            foreach (var image in jauge.GetComponentsInChildren<Image>())
+            {
+                image.DOFade(0, 0.5f);
+            }
+        }
+        else
+        {
+            jauge.gameObject.SetActive(!value);
+            foreach (var image in jauge.GetComponentsInChildren<Image>())
+            {
+                image.DOFade(1, 0.5f);
             }
         }
     }
@@ -148,12 +181,14 @@ public class MashingGame : MonoBehaviour
     {
         Debug.Log("Victory");
         _hasWon = true;
-        actualState = GameState.OutGame;
+        actualState = GameState.PauseGame;
+        _levelManager.PlayVictoryAnim();
     }
 
     public void Lose()
     {
         Debug.Log("Lose");
-        actualState = GameState.OutGame;
+        actualState = GameState.PauseGame;
+        _levelManager.PlayLoseAnim();
     }
 }

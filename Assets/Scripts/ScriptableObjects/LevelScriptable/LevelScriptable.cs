@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public enum SortingLayerEnum
@@ -23,15 +24,15 @@ public class SceneElementsSprite
 {
     public Sprite sprite;
     public SortingLayerEnum sortingLayer;
+    public Vector2 posSprite;
 }
 
 [Serializable]
 public class SceneElementAnimatedSprite
 {
-    public AnimationClip animationClip;
-    public SortingLayerEnum sortingLayer;
-    [CanBeNull] public AnimationClip victoryClip;
-    [CanBeNull] public AnimationClip loseClip;
+    public SceneElementsSprite sprite; 
+    public AnimatorController animationController;
+    public AnimationClip clip;
     public float delayAnimation;
 }
 
@@ -49,16 +50,22 @@ public class LevelScriptable : ScriptableObject
     [Header("Night Part")]
     public List<SceneElementAnimatedSprite> animationClipListNight = new List<SceneElementAnimatedSprite>();
     public List<SceneElementsSprite> spriteListNight = new List<SceneElementsSprite>();
+    
     public int barFullNb;
+    public int pointLoseOnMiss;
     
     public float timerLevelNight;
-    //TODO Create an index in the level manager that will check the touch the player will need to press
-    public List<KeyCode> keyCodesList = new List<KeyCode>();
 
     public AudioClip audioLevelNight;
     //TODO Create an index in the level manager that play the clip depending on the index
     public List<AudioClip> sfxNightList = new List<AudioClip>();
 
+    [Header("Mashing Game")]
+    public List<KeyCode> keyCodesList = new List<KeyCode>();
+    public float timerBeforeKeyChange;
+    public float ratioOverTime;
+    public int valueToWithdraw;
+    
     [Header("Timer End Night Part")]
     public float timerVictoryAnim;
     public float timerLoseAnim;

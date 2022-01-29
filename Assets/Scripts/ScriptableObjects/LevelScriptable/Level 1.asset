@@ -13,38 +13,41 @@ MonoBehaviour:
   m_Name: Level 1
   m_EditorClassIdentifier: 
   animationClipListDay:
-  - animationClip: {fileID: 7400000, guid: 873595c29de535e4d893a55faf554816, type: 2}
-    sortingLayer: 0
-    victoryClip: {fileID: 0}
-    loseClip: {fileID: 0}
-    delayAnimation: 1
-  - animationClip: {fileID: 7400000, guid: bcbc639ac0af79944bdcdb8b9023ace0, type: 2}
-    sortingLayer: 1
-    victoryClip: {fileID: 0}
-    loseClip: {fileID: 0}
+  - sprite:
+      sprite: {fileID: 21300000, guid: cecb6c155b55f5f408b6f79bd90973ce, type: 3}
+      sortingLayer: 0
+      posSprite: {x: 1, y: 0}
+    animationController: {fileID: 9100000, guid: 613db4049a2537a48bc38bd75ef61849, type: 2}
+    clip: {fileID: 7400000, guid: e65dd3fc8153ea841b0ca8077fea86f3, type: 2}
     delayAnimation: 1
   spriteListDay:
   - sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
     sortingLayer: 0
-  - sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-    sortingLayer: 0
-  - sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
-    sortingLayer: 0
-  timerLevelDay: 20
-  audioLevelDay: {fileID: 0}
-  sfxSceneList: []
+    posSprite: {x: 0, y: 0}
+  timerLevelDay: 10
+  audioLevelDay: {fileID: 8300000, guid: ab27a27423a239c45b997fc6af6f0838, type: 3}
+  sfxSceneList:
+  - audioClip: {fileID: 8300000, guid: a39157389c9cb3643b730f360cf95947, type: 3}
+    timerToPlay: 2.5
   animationClipListNight: []
   spriteListNight:
   - sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
     sortingLayer: 0
+    posSprite: {x: 0, y: 0}
   - sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
     sortingLayer: 0
+    posSprite: {x: 0, y: 0}
   - sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     sortingLayer: 0
+    posSprite: {x: 0, y: 0}
   barFullNb: 30
-  timerLevelNight: 20
-  keyCodesList: 61000000
-  audioLevelNight: {fileID: 0}
+  pointLoseOnMiss: 0
+  timerLevelNight: 10
+  audioLevelNight: {fileID: 8300000, guid: a39157389c9cb3643b730f360cf95947, type: 3}
   sfxNightList: []
-  timerVictoryAnim: 0
-  timerLoseAnim: 0
+  keyCodesList: 7a00000065000000
+  timerBeforeKeyChange: 2
+  ratioOverTime: 0.1
+  valueToWithdraw: 1
+  timerVictoryAnim: 5
+  timerLoseAnim: 5
