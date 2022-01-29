@@ -40,7 +40,7 @@ MonoBehaviour:
   - sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
     sortingLayer: 0
     posSprite: {x: 0, y: 0}
-  barFullNb: 30
+  barFullNb: 15
   pointLoseOnMiss: 0
   timerLevelNight: 10
   audioLevelNight: {fileID: 8300000, guid: a39157389c9cb3643b730f360cf95947, type: 3}

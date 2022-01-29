@@ -53,7 +53,6 @@ public class MashingGame : MonoBehaviour
     {
         actualState = GameState.OutGame;
         _hasWon = false;
-
         _chrono = 0f;
         HideSlider(false);
         jauge.value = 0f;
