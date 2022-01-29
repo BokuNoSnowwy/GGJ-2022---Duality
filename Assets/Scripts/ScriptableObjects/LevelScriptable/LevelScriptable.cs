@@ -31,7 +31,7 @@ public class SceneElementsSprite
 public class SceneElementAnimatedSprite
 {
     public SceneElementsSprite sprite; 
-    public AnimatorController animationClip;
+    public AnimatorController animationController;
     public AnimationClip clip;
     public float delayAnimation;
 }
@@ -50,7 +50,9 @@ public class LevelScriptable : ScriptableObject
     [Header("Night Part")]
     public List<SceneElementAnimatedSprite> animationClipListNight = new List<SceneElementAnimatedSprite>();
     public List<SceneElementsSprite> spriteListNight = new List<SceneElementsSprite>();
+    
     public int barFullNb;
+    public int pointLoseOnMiss;
     
     public float timerLevelNight;
     //TODO Create an index in the level manager that will check the touch the player will need to press
