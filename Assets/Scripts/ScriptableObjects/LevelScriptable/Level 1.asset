@@ -12,6 +12,39 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ee61525b5b7c2d48934b41f307f62e6, type: 3}
   m_Name: Level 1
   m_EditorClassIdentifier: 
-  animationClip: {fileID: 0}
+  animationClipListDay:
+  - animationClip: {fileID: 7400000, guid: 873595c29de535e4d893a55faf554816, type: 2}
+    sortingLayer: 0
+    victoryClip: {fileID: 0}
+    loseClip: {fileID: 0}
+    delayAnimation: 1
+  - animationClip: {fileID: 7400000, guid: bcbc639ac0af79944bdcdb8b9023ace0, type: 2}
+    sortingLayer: 1
+    victoryClip: {fileID: 0}
+    loseClip: {fileID: 0}
+    delayAnimation: 1
+  spriteListDay:
+  - sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+    sortingLayer: 0
+  - sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+    sortingLayer: 0
+  - sprite: {fileID: 10917, guid: 0000000000000000f000000000000000, type: 0}
+    sortingLayer: 0
+  timerLevelDay: 20
+  audioLevelDay: {fileID: 0}
+  sfxSceneList: []
+  animationClipListNight: []
+  spriteListNight:
+  - sprite: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+    sortingLayer: 0
+  - sprite: {fileID: 10915, guid: 0000000000000000f000000000000000, type: 0}
+    sortingLayer: 0
+  - sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
+    sortingLayer: 0
   barFullNb: 30
+  timerLevelNight: 20
   keyCodesList: 61000000
+  audioLevelNight: {fileID: 0}
+  sfxNightList: []
+  timerVictoryAnim: 0
+  timerLoseAnim: 0

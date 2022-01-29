@@ -21,14 +21,23 @@ public class LevelManager : MonoBehaviour
     [Header("Level Management")] 
     public StateDay stateDay;
     public int indexLevel;
+    //level timer management
+    public bool onLevelTimer;
     public float timerLevel;
     public int barFullNb;
-
-    //A gameobject reference with a 
+    public List<KeyCode> keyCodesList = new List<KeyCode>();
+    
+    //Audio Source
+    
+    //Animation End Night
+    public bool onAnimationEndNight;
+    public float timerEndNight;
+    
     public GameObject prefabSceneSprite;
     public GameObject prefabSceneSpriteAnimation;
     public List<GameObject> spriteSceneList = new List<GameObject>();
-    
+    public List<GameObject> spriteSceneAnimationList = new List<GameObject>();
+
     private void Awake()
     {
         if (Instance == null)
@@ -47,17 +56,65 @@ public class LevelManager : MonoBehaviour
         indexLevel = 1;
         stateDay = StateDay.Day;
         SetupValuesFromLevelScriptable(GetLevelFromIndex(indexLevel));
+        PlayScene();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+        if (onAnimationEndNight)
+        {
+            timerEndNight -= Time.deltaTime;
+            if (timerEndNight <= 0)
+            {
+                NextScene();
+                onAnimationEndNight = false;
+            }
+        }
+
+        /*
+        if (onLevelTimer)
+        {
+            timerLevel -= Time.deltaTime;
+            if (timerLevel <= 0)
+            {
+                onLevelTimer = false;
+            }
+        }
+        */
     }
 
     private void SetupValuesFromLevelScriptable(LevelScriptable levelScriptable)
     {
+        switch (stateDay)
+        {
+            case StateDay.Day :
+                timerLevel = levelScriptable.timerLevelDay;
+                break;
+            case StateDay.Night :
+                timerLevel = levelScriptable.timerLevelDay;
+                break;
+        }
+
+        //Button Masher
+        //TODO Utiliser le truc de kilian 
+        barFullNb = levelScriptable.barFullNb;
+        keyCodesList = levelScriptable.keyCodesList;
         
+        //SFX
+        SetupSFX();
+    }
+
+    private void PlayScene()
+    {
+        CreateBackground();
+        CreateAnimatedSprites();
+    }
+
+    //TODO setup la musique et les sfx
+    public void SetupSFX()
+    {
+        LevelScriptable scriptable = GetLevelFromIndex(indexLevel);
     }
 
     private void CreateBackground()
@@ -67,17 +124,41 @@ public class LevelManager : MonoBehaviour
             GameObject sprite = Instantiate(prefabSceneSprite);
             SpriteRenderer spriteR = sprite.GetComponent<SpriteRenderer>();
             spriteR.sprite = element.sprite;
-            spriteR.sortingLayerID = element.sortingLayer.id;
+            spriteR.sortingLayerID = SortingLayer.NameToID(element.sortingLayer.ToString());
+
+            spriteSceneList.Add(sprite);
         }
     }
 
+    //Create Sprites that will play animations
     private void CreateAnimatedSprites()
     {
         foreach (var element in GetSceneAnimationsList())
         {
             GameObject sprite = Instantiate(prefabSceneSpriteAnimation);
-            sprite.GetComponent<Animation>().clip = element.animationClip;
-            sprite.GetComponent<SpriteRenderer>().sortingLayerID = element.sortingLayer.id;
+            Animation animation = sprite.GetComponent<Animation>();
+            AnimatedSprite spriteAnim = sprite.GetComponent<AnimatedSprite>();
+            
+            Debug.Log(element.animationClip);
+            
+            //Anim end setup
+            spriteAnim.clip = element.animationClip;
+            spriteAnim.loseClip = element.loseClip;
+            spriteAnim.victoryClip = element.victoryClip;
+            spriteAnim.delayAnimation = element.delayAnimation;
+            
+            /*
+            //Get all the animations and put them in the clip
+            animation.AddClip(element.animationClip,element.animationClip.name);
+            if (element.loseClip != null)
+                animation.AddClip(element.loseClip,element.loseClip.name);
+            if (element.victoryClip != null)
+                animation.AddClip(element.victoryClip, element.victoryClip.name);
+                */
+            
+            sprite.GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID(element.sortingLayer.ToString());
+            //Add the GO to the list 
+            spriteSceneAnimationList.Add(sprite);
         }
     }
 
@@ -94,9 +175,9 @@ public class LevelManager : MonoBehaviour
         return listReturn;
     }
     
-    private List<SceneElementAnimation> GetSceneAnimationsList()
+    private List<SceneElementAnimatedSprite> GetSceneAnimationsList()
     {
-        List<SceneElementAnimation> listReturn = null;
+        List<SceneElementAnimatedSprite> listReturn = null;
         switch (stateDay)
         {
             case StateDay.Day :
@@ -115,8 +196,34 @@ public class LevelManager : MonoBehaviour
         foreach (var spriteGO in spriteSceneList)
         {
             Destroy(spriteGO);
-        }    
+        }
+
+        foreach (var spriteGo in spriteSceneAnimationList)
+        {
+            Destroy(spriteGo);
+        }
+        
         ChangeStateDay();
+        SetupValuesFromLevelScriptable(GetLevelFromIndex(indexLevel));
+        //TODO Create new background
+        
+    }
+
+
+    public void PlayVictoryAnim()
+    {
+        foreach (var spriteGO in spriteSceneAnimationList)
+        {
+            spriteGO.GetComponent<AnimatedSprite>().PlayVictoryClip();
+        }
+    }
+
+    public void PlayLoseAnim()
+    {
+        foreach (var spriteGO in spriteSceneAnimationList)
+        {
+            spriteGO.GetComponent<AnimatedSprite>().PlayLoseClip();
+        }
     }
 
     private void ChangeStateDay()
@@ -127,6 +234,8 @@ public class LevelManager : MonoBehaviour
         }
         else
         {
+            //New day
+            indexLevel++;
             stateDay = StateDay.Day;
         }
     }
