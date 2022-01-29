@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9416565a5f8519043bce69adbc192b4f
+guid: dcc2dab45d91c334ab30081f6edf6383
 TextureImporter:
   internalIDToNameTable:
   - first:
@@ -97,12 +97,12 @@ TextureImporter:
       name: UI_button_start_0
       rect:
         serializedVersion: 2
-        x: 455
-        y: 651
-        width: 830
-        height: 432
+        x: 403
+        y: 399
+        width: 942
+        height: 737
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
