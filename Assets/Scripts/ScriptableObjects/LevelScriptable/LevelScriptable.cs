@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using JetBrains.Annotations;
+using UnityEditor.Animations;
 using UnityEngine;
 
 public enum SortingLayerEnum
@@ -23,15 +24,15 @@ public class SceneElementsSprite
 {
     public Sprite sprite;
     public SortingLayerEnum sortingLayer;
+    public Vector2 posSprite;
 }
 
 [Serializable]
 public class SceneElementAnimatedSprite
 {
-    public AnimationClip animationClip;
-    public SortingLayerEnum sortingLayer;
-    [CanBeNull] public AnimationClip victoryClip;
-    [CanBeNull] public AnimationClip loseClip;
+    public SceneElementsSprite sprite; 
+    public AnimatorController animationClip;
+    public AnimationClip clip;
     public float delayAnimation;
 }
 

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using DG.Tweening;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,7 +19,8 @@ public class LevelManager : MonoBehaviour
     public Image fadePanel;
     public float timerFadePanel;
 
-    [Header("Level Management")] 
+    [Header("Level Management")]
+    public bool onScene;
     public StateDay stateDay;
     public int indexLevel;
     //level timer management
@@ -56,33 +58,54 @@ public class LevelManager : MonoBehaviour
         indexLevel = 1;
         stateDay = StateDay.Day;
         SetupValuesFromLevelScriptable(GetLevelFromIndex(indexLevel));
-        PlayScene();
+        fadePanel.DOFade(0, 1f).OnComplete(() =>
+        {
+            PlayScene();
+            fadePanel.gameObject.SetActive(false);
+        });
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (onAnimationEndNight)
+        if (onScene)
         {
-            timerEndNight -= Time.deltaTime;
-            if (timerEndNight <= 0)
+            switch (stateDay)
             {
-                NextScene();
-                onAnimationEndNight = false;
+                //Day
+                case StateDay.Day :
+                    timerLevel -= Time.deltaTime;
+                    if (timerLevel <= 0)
+                    {
+                        NextScene();
+                    }
+                    break;
+                //Night
+                case StateDay.Night :
+                    if (onAnimationEndNight)
+                    {
+                        timerEndNight -= Time.deltaTime;
+                        if (timerEndNight <= 0)
+                        {
+                            NextScene();
+                            onAnimationEndNight = false;
+                        }
+                    }
+                    else
+                    {
+                        timerLevel -= Time.deltaTime;
+                        if (timerLevel <= 0)
+                        {
+                            onAnimationEndNight = true;
+                            //Change animation
+                            PlayLoseAnim();
+                        }
+                    }
+                    break;
             }
         }
-
-        /*
-        if (onLevelTimer)
-        {
-            timerLevel -= Time.deltaTime;
-            if (timerLevel <= 0)
-            {
-                onLevelTimer = false;
-            }
-        }
-        */
     }
+    
 
     private void SetupValuesFromLevelScriptable(LevelScriptable levelScriptable)
     {
@@ -101,20 +124,34 @@ public class LevelManager : MonoBehaviour
         barFullNb = levelScriptable.barFullNb;
         keyCodesList = levelScriptable.keyCodesList;
         
-        //SFX
-        SetupSFX();
+
     }
 
     private void PlayScene()
     {
+        timerLevel = GetLevelFromIndex(indexLevel).timerLevelDay;
+        onScene = true;
         CreateBackground();
         CreateAnimatedSprites();
+        //SFX
+        SetupSFX();
+        //Timer
+        SetupTimer();
+    }
+
+    private void SetupTimer()
+    {
+        LevelScriptable level = GetLevelFromIndex(indexLevel);
+        if (stateDay == StateDay.Day)
+            timerLevel = level.timerLevelDay;
+        else
+            timerLevel = level.timerLevelNight;
     }
 
     //TODO setup la musique et les sfx
     public void SetupSFX()
     {
-        LevelScriptable scriptable = GetLevelFromIndex(indexLevel);
+        //LevelScriptable scriptable = GetLevelFromIndex(indexLevel);
     }
 
     private void CreateBackground()
@@ -123,6 +160,7 @@ public class LevelManager : MonoBehaviour
         {
             GameObject sprite = Instantiate(prefabSceneSprite);
             SpriteRenderer spriteR = sprite.GetComponent<SpriteRenderer>();
+            sprite.transform.position = element.posSprite;
             spriteR.sprite = element.sprite;
             spriteR.sortingLayerID = SortingLayer.NameToID(element.sortingLayer.ToString());
 
@@ -133,30 +171,22 @@ public class LevelManager : MonoBehaviour
     //Create Sprites that will play animations
     private void CreateAnimatedSprites()
     {
+        Debug.Log(stateDay);
         foreach (var element in GetSceneAnimationsList())
         {
             GameObject sprite = Instantiate(prefabSceneSpriteAnimation);
-            Animation animation = sprite.GetComponent<Animation>();
             AnimatedSprite spriteAnim = sprite.GetComponent<AnimatedSprite>();
             
-            Debug.Log(element.animationClip);
+            //Sprite setup
+            sprite.GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID(element.sprite.sortingLayer.ToString());
+            sprite.transform.position = element.sprite.posSprite;
             
-            //Anim end setup
-            spriteAnim.clip = element.animationClip;
-            spriteAnim.loseClip = element.loseClip;
-            spriteAnim.victoryClip = element.victoryClip;
-            spriteAnim.delayAnimation = element.delayAnimation;
-            
-            /*
             //Get all the animations and put them in the clip
-            animation.AddClip(element.animationClip,element.animationClip.name);
-            if (element.loseClip != null)
-                animation.AddClip(element.loseClip,element.loseClip.name);
-            if (element.victoryClip != null)
-                animation.AddClip(element.victoryClip, element.victoryClip.name);
-                */
-            
-            sprite.GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID(element.sortingLayer.ToString());
+            //Anim end setup
+            spriteAnim.clip = element.clip;
+            spriteAnim.animatorController = element.animationClip;
+
+            sprite.GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID(element.sprite.sortingLayer.ToString());
             //Add the GO to the list 
             spriteSceneAnimationList.Add(sprite);
         }
@@ -183,7 +213,7 @@ public class LevelManager : MonoBehaviour
             case StateDay.Day :
                 return GetLevelFromIndex(indexLevel).animationClipListDay;
             case StateDay.Night :
-                return GetLevelFromIndex(indexLevel).animationClipListDay;
+                return GetLevelFromIndex(indexLevel).animationClipListNight;
         }
         return listReturn;
     }
@@ -192,21 +222,28 @@ public class LevelManager : MonoBehaviour
     //Destroy on fade out
     private void NextScene()
     {
-        //TODO Make the fade out here
-        foreach (var spriteGO in spriteSceneList)
-        {
-            Destroy(spriteGO);
-        }
+        onScene = false;
+        Sequence sequence = DOTween.Sequence();
+        fadePanel.gameObject.SetActive(true);
+        sequence.Append(fadePanel.DOFade(1, 1f).OnComplete(() =>
+            {
+                foreach (var spriteGO in spriteSceneList)
+                {
+                    Destroy(spriteGO);
+                }
+                spriteSceneList.Clear();
 
-        foreach (var spriteGo in spriteSceneAnimationList)
-        {
-            Destroy(spriteGo);
-        }
-        
-        ChangeStateDay();
-        SetupValuesFromLevelScriptable(GetLevelFromIndex(indexLevel));
-        //TODO Create new background
-        
+                foreach (var spriteGo in spriteSceneAnimationList)
+                {
+                    Destroy(spriteGo);
+                }
+                spriteSceneAnimationList.Clear();
+                
+                ChangeStateDay();
+                SetupValuesFromLevelScriptable(GetLevelFromIndex(indexLevel));
+                PlayScene();
+            }));
+        sequence.Append(fadePanel.DOFade(0, 1f).SetEase(Ease.InQuint)).OnComplete(()=>fadePanel.gameObject.SetActive(false));
     }
 
 
