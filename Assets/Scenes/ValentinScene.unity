@@ -967,6 +967,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
+      propertyPath: loseClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a5da8e3fd2bd834b9aa85b0f5e4e9f0, type: 3}
+    - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
       propertyPath: bgmSource
       value: 
       objectReference: {fileID: 2047166322}
@@ -982,6 +986,10 @@ PrefabInstance:
       propertyPath: mashingGame
       value: 
       objectReference: {fileID: 1532118906}
+    - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
+      propertyPath: victoryClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4414a882af14d5d419f69917d28f6a18, type: 3}
     - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
       propertyPath: listLevel.Array.size
       value: 5
