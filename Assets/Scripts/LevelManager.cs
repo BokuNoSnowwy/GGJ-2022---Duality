@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public enum StateDay
@@ -396,8 +397,7 @@ public class LevelManager : MonoBehaviour
             if (indexLevel < listLevel.Count)
                 indexLevel++;
             else
-                Debug.Log("EndGame");//EndGame //TODO Change scene 
-            stateDay = StateDay.Day;
+                SceneManager.LoadScene("VictoryScene");
         }
     }
 
