@@ -402,6 +402,29 @@ public class LevelManager : MonoBehaviour
         }
     }
 
+    public void PauseSFX(bool value)
+    {
+        foreach (var sfx in sfxSourceList)
+        {
+            if (value)
+            {
+                sfx.Pause();
+            }
+            else
+            {
+                sfx.UnPause();
+            }
+        }
+        if (value)
+        {
+            bgmSource.Pause();
+        }
+        else
+        {
+            bgmSource.UnPause();
+        }
+    }
+
     private LevelScriptable GetLevelFromIndex(int index)
     {
         return listLevel[index - 1];
