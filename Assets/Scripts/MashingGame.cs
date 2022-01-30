@@ -1,9 +1,11 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using DG.Tweening;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using Random = UnityEngine.Random;
 
 public enum GameState
 {
@@ -34,6 +36,13 @@ public class MashingGame : MonoBehaviour
     [Tooltip("A quel point la jauge descend si on ne fait rien")] public float ratioOverTime;
 
     private LevelManager _levelManager;
+
+    public Animator a;
+    public float timetest;
+    public float frameNumber;
+    public int frameWanted;
+    public List<AnimFrame> animFrames = new List<AnimFrame>();
+    public GameObject objSprite;
     
     void Start()
     {
@@ -47,6 +56,10 @@ public class MashingGame : MonoBehaviour
         */
         _levelManager = LevelManager.Instance;
         actualState = GameState.PauseGame;
+
+        objSprite.GetComponent<SpriteRenderer>().sprite = animFrames[frameWanted].sprite;
+        objSprite.transform.position = animFrames[frameWanted].pos;
+        objSprite.transform.rotation = animFrames[frameWanted].rot;
     }
 
     public void StartNight()
@@ -140,6 +153,13 @@ public class MashingGame : MonoBehaviour
                 {
                     Debug.Log("Nice touch");
                     jauge.value += valueToAdd;
+
+                    frameWanted++;
+                    if (frameWanted >= animFrames.Count)
+                        frameWanted = 0;
+                    objSprite.GetComponent<SpriteRenderer>().sprite = animFrames[frameWanted].sprite;
+                    objSprite.transform.position = animFrames[frameWanted].pos;
+                    objSprite.transform.rotation = animFrames[frameWanted].rot;
                 }
                 else
                 {
@@ -190,4 +210,12 @@ public class MashingGame : MonoBehaviour
         actualState = GameState.PauseGame;
         _levelManager.PlayLoseAnim();
     }
+}
+
+[Serializable]
+public class AnimFrame
+{
+    public Sprite sprite;
+    public Vector3 pos;
+    public Quaternion rot;
 }
