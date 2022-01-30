@@ -161,6 +161,7 @@ public class LevelManager : MonoBehaviour
         onScene = false;
         Sequence sequence = DOTween.Sequence();
         fadePanel.gameObject.SetActive(true);
+        
         sequence.Append(fadePanel.DOFade(1, 1f).OnComplete(() =>
         {
             foreach (var spriteGO in spriteSceneList)

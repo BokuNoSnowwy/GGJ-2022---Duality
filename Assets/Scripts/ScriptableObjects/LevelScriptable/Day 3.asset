@@ -14,18 +14,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animationClipListDay:
   - sprite:
-      sprite: {fileID: 21300000, guid: cecb6c155b55f5f408b6f79bd90973ce, type: 3}
+      sprite: {fileID: 21300000, guid: 945a94a81a2a08243a521d7d40eab176, type: 3}
       sortingLayer: 0
-      sortingLayerValue: 0
-      posSprite: {x: 3.143, y: -0.127}
-    animationController: {fileID: 9100000, guid: 613db4049a2537a48bc38bd75ef61849, type: 2}
-    clip: {fileID: 7400000, guid: e65dd3fc8153ea841b0ca8077fea86f3, type: 2}
+      sortingLayerValue: -1
+      posSprite: {x: 0, y: 0}
+    animationController: {fileID: 9100000, guid: d35a256cef8097245a92391a9a63b2fd, type: 2}
+    clip: {fileID: 7400000, guid: 69f03555bb8a5aa4fb991ab7626cbe5b, type: 2}
     delayAnimation: 0
   - sprite:
       sprite: {fileID: 21300000, guid: 2d3d97cba6797a2498d9183632a5a39f, type: 3}
       sortingLayer: 1
       sortingLayerValue: 0
-      posSprite: {x: -2.553, y: 0.815}
+      posSprite: {x: -2.553, y: 1.23}
     animationController: {fileID: 9100000, guid: 46e08030c3b1001459b0e66f77213aa2, type: 2}
     clip: {fileID: 7400000, guid: 9882771f988f624458f5bff65bcdebef, type: 2}
     delayAnimation: 0
@@ -36,8 +36,8 @@ MonoBehaviour:
     posSprite: {x: 0, y: 0}
   - sprite: {fileID: 21300000, guid: b8e19d08043e04b498625b2e0eedcf21, type: 3}
     sortingLayer: 0
-    sortingLayerValue: 0
-    posSprite: {x: -1.79, y: -0.51}
+    sortingLayerValue: -2
+    posSprite: {x: -1.79, y: -0.095}
   timerLevelDay: 10
   audioLevelDay: {fileID: 8300000, guid: ab27a27423a239c45b997fc6af6f0838, type: 3}
   sfxSceneList:
@@ -45,24 +45,39 @@ MonoBehaviour:
     timerToPlay: 2.5
   animationClipListNight:
   - sprite:
-      sprite: {fileID: 21300000, guid: bff466dad492c2c4fb8365b8b83b66ae, type: 3}
+      sprite: {fileID: 21300000, guid: 35911d1d81df84a448237ac1cd6cc5da, type: 3}
       sortingLayer: 0
-      sortingLayerValue: 0
-      posSprite: {x: -3.17, y: 0.5}
-    animationController: {fileID: 9100000, guid: 82e0a5fd9bbcbaf4d8ce63e5ab158318, type: 2}
-    clip: {fileID: 7400000, guid: 642b33a2f7289b946b4574ca50f725ec, type: 2}
+      sortingLayerValue: -2
+      posSprite: {x: 0.52, y: 0.25}
+    animationController: {fileID: 9100000, guid: dbc85bc83e2b5404f9333166e48f948e, type: 2}
+    clip: {fileID: 7400000, guid: 5b014c7e55466cc49bc3563fb63f0aa8, type: 2}
     delayAnimation: 0
   spriteListNight:
-  - sprite: {fileID: 21300000, guid: 4e8b5bf7cf8e8d8479e8b7e617a1b1ff, type: 3}
+  - sprite: {fileID: 21300000, guid: f13f2528bd317384ea553193b3d630ac, type: 3}
     sortingLayer: 2
     sortingLayerValue: 0
     posSprite: {x: 0, y: 0}
+  - sprite: {fileID: 21300000, guid: 9635dc8e3ed592d458befc28a4aecf72, type: 3}
+    sortingLayer: 0
+    sortingLayerValue: -1
+    posSprite: {x: 0, y: 0}
+  mashingFrames: []
+  mashingAnimatedObj: {fileID: 0}
   barFullNb: 15
   pointLoseOnMiss: 1
   timerLevelNight: 10
   audioLevelNight: {fileID: 8300000, guid: a39157389c9cb3643b730f360cf95947, type: 3}
   sfxNightList: []
-  keyCodesList: 7a00000065000000
+  keyCodesList:
+  - keyCode: 97
+    spriteKeyNotMash: {fileID: 21300000, guid: 92d9791431a082a43bb817885051412b, type: 3}
+    spriteKeyMashed: {fileID: 21300000, guid: de076b349f37a2e4aa51a42fbf94fcd6, type: 3}
+  - keyCode: 99
+    spriteKeyNotMash: {fileID: 21300000, guid: 13bb13b1d4a08c746a1b668bace22f68, type: 3}
+    spriteKeyMashed: {fileID: 21300000, guid: 94c501c7335490745880ecc2c4f9b9ad, type: 3}
+  - keyCode: 107
+    spriteKeyNotMash: {fileID: 21300000, guid: 302a47f0719c018448b6a0c721fd3c43, type: 3}
+    spriteKeyMashed: {fileID: 21300000, guid: 0557b8772f756e5448a9a01a53c0c44d, type: 3}
   timerBeforeKeyChange: 2
   ratioOverTime: 0.1
   valueToWithdraw: 1

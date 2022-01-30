@@ -39,10 +39,12 @@ MonoBehaviour:
     sortingLayerValue: 0
     posSprite: {x: -1.79, y: -0.51}
   timerLevelDay: 10
-  audioLevelDay: {fileID: 8300000, guid: ab27a27423a239c45b997fc6af6f0838, type: 3}
+  audioLevelDay: {fileID: 8300000, guid: 7a70d931c1097a248a946c520f48c348, type: 3}
   sfxSceneList:
-  - audioClip: {fileID: 8300000, guid: 6a5da8e3fd2bd834b9aa85b0f5e4e9f0, type: 3}
+  - audioClip: {fileID: 8300000, guid: 29b1d61093c8cc34193ac04f77f43170, type: 3}
     timerToPlay: 0
+  - audioClip: {fileID: 8300000, guid: 29b1d61093c8cc34193ac04f77f43170, type: 3}
+    timerToPlay: 5.3
   animationClipListNight:
   - sprite:
       sprite: {fileID: 21300000, guid: bff466dad492c2c4fb8365b8b83b66ae, type: 3}
