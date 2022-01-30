@@ -1,8 +1,10 @@
+#if UNITY_EDITOR
+using UnityEditor.Animations;
+#endif
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
-using UnityEditor.Animations;
+
 using UnityEngine;
 
 public enum SortingLayerEnum
@@ -32,7 +34,7 @@ public class SceneElementsSprite
 public class SceneElementAnimatedSprite
 {
     public SceneElementsSprite sprite; 
-    public AnimatorController animationController;
+    public RuntimeAnimatorController animationController;
     public AnimationClip clip;
     public float delayAnimation;
 }

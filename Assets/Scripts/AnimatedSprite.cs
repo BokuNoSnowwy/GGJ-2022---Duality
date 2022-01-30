@@ -1,6 +1,10 @@
+#if UNITY_EDITOR
+using UnityEditor.Animations;
+#endif
+
 using System.Collections;
 using System.Collections.Generic;
-using UnityEditor.Animations;
+
 using UnityEngine;
 
 public class AnimatedSprite : MonoBehaviour
@@ -11,7 +15,7 @@ public class AnimatedSprite : MonoBehaviour
     public AnimationClip loseClip;
     */
     public AnimationClip clip;
-    public AnimatorController animatorController;
+    public RuntimeAnimatorController animatorController;
     public Animator animator;
 
     private Animation _animation;
