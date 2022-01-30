@@ -68,7 +68,7 @@ public class LevelManager : MonoBehaviour
         indexLevel = 1;
         stateDay = StateDay.Day;
         SetupValuesFromLevelScriptable(GetLevelFromIndex(indexLevel));
-        fadePanel.DOFade(0, 1f).OnComplete(() =>
+        fadePanel.DOFade(0, 0.5f).OnComplete(() =>
         {
             PlayScene();
             fadePanel.gameObject.SetActive(false);
