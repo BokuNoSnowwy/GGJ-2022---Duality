@@ -132,9 +132,6 @@ MonoBehaviour:
   - keyCode: 107
     spriteKeyNotMash: {fileID: 21300000, guid: 302a47f0719c018448b6a0c721fd3c43, type: 3}
     spriteKeyMashed: {fileID: 21300000, guid: 0557b8772f756e5448a9a01a53c0c44d, type: 3}
-  - keyCode: 121
-    spriteKeyNotMash: {fileID: 21300000, guid: 569e8eff430df4c4ea2bddb816219872, type: 3}
-    spriteKeyMashed: {fileID: 21300000, guid: 4eaad0cc0a33c8e47a1be705fef44290, type: 3}
   timerBeforeKeyChange: 2
   ratioOverTime: 0.1
   valueToWithdraw: 1
