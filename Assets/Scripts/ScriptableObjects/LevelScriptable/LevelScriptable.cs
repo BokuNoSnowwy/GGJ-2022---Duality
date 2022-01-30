@@ -71,7 +71,7 @@ public class LevelScriptable : ScriptableObject
     public List<AudioClip> sfxNightList = new List<AudioClip>();
 
     [Header("Mashing Game")]
-    public List<KeyCode> keyCodesList = new List<KeyCode>();
+    public List<KeyToMash> keyCodesList = new List<KeyToMash>();
     public float timerBeforeKeyChange;
     public float ratioOverTime;
     public int valueToWithdraw;
