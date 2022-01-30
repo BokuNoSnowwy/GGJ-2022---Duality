@@ -107,8 +107,8 @@ MonoBehaviour:
     rot: {x: 0, y: 0, z: 0, w: 0}
     sortingLayer: 0
   mashingAnimatedObj: {fileID: 0}
-  victorySprite: {fileID: 0}
-  loseSprite: {fileID: 0}
+  victorySprite: {fileID: 21300000, guid: 7bd7bcd8484ee5c40aa66e4841d65bc4, type: 3}
+  loseSprite: {fileID: 21300000, guid: 43bef175aea204a479a769eda3cbbe1f, type: 3}
   barFullNb: 15
   pointLoseOnMiss: 1
   timerLevelNight: 10

@@ -43,15 +43,7 @@ MonoBehaviour:
   sfxSceneList:
   - audioClip: {fileID: 8300000, guid: a39157389c9cb3643b730f360cf95947, type: 3}
     timerToPlay: 2.5
-  animationClipListNight:
-  - sprite:
-      sprite: {fileID: 0}
-      sortingLayer: 0
-      sortingLayerValue: -2
-      posSprite: {x: 0.52, y: 0.25}
-    animationController: {fileID: 9100000, guid: dbc85bc83e2b5404f9333166e48f948e, type: 2}
-    clip: {fileID: 7400000, guid: 5b014c7e55466cc49bc3563fb63f0aa8, type: 2}
-    delayAnimation: 0
+  animationClipListNight: []
   spriteListNight:
   - sprite: {fileID: 21300000, guid: f13f2528bd317384ea553193b3d630ac, type: 3}
     sortingLayer: 2
@@ -61,10 +53,30 @@ MonoBehaviour:
     sortingLayer: 0
     sortingLayerValue: -1
     posSprite: {x: 0, y: 0}
-  mashingFrames: []
+  mashingFrames:
+  - sprite: {fileID: 21300000, guid: 35911d1d81df84a448237ac1cd6cc5da, type: 3}
+    sortingLayerValue: 0
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
+    sortingLayer: 1
+  - sprite: {fileID: 21300000, guid: dcf0c7fe12555a949b53d83a38641a00, type: 3}
+    sortingLayerValue: 0
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
+    sortingLayer: 1
+  - sprite: {fileID: 21300000, guid: a66d41b5ed4ea5541bf326030e8732ad, type: 3}
+    sortingLayerValue: 0
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
+    sortingLayer: 1
+  - sprite: {fileID: 21300000, guid: c3a64ae92acabf0468c8e4399ae1fc34, type: 3}
+    sortingLayerValue: 0
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
+    sortingLayer: 1
   mashingAnimatedObj: {fileID: 0}
-  victorySprite: {fileID: 0}
-  loseSprite: {fileID: 0}
+  victorySprite: {fileID: 21300000, guid: 893c8d20d06aacb4393869f24a0b406b, type: 3}
+  loseSprite: {fileID: 21300000, guid: c9ddadcc031b1df46929fbb94a73b939, type: 3}
   barFullNb: 15
   pointLoseOnMiss: 1
   timerLevelNight: 10

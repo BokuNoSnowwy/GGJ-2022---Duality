@@ -45,14 +45,6 @@ MonoBehaviour:
     timerToPlay: 2.5
   animationClipListNight:
   - sprite:
-      sprite: {fileID: 21300000, guid: c129dde2e740fb84d8dd87f319a1f063, type: 3}
-      sortingLayer: 0
-      sortingLayerValue: 0
-      posSprite: {x: -2.37, y: -0.11}
-    animationController: {fileID: 9100000, guid: 0bb15025e47139c46adbd212cfb00c9a, type: 2}
-    clip: {fileID: 7400000, guid: 92525f2e34812e847be1edd4d9103933, type: 2}
-    delayAnimation: 0
-  - sprite:
       sprite: {fileID: 21300000, guid: 6846ccb3122b10149b46e1eeff432a2b, type: 3}
       sortingLayer: 2
       sortingLayerValue: 0
@@ -61,10 +53,20 @@ MonoBehaviour:
     clip: {fileID: 7400000, guid: f6870344b52309444ba50daed6bcc39a, type: 2}
     delayAnimation: 0
   spriteListNight: []
-  mashingFrames: []
+  mashingFrames:
+  - sprite: {fileID: 21300000, guid: c129dde2e740fb84d8dd87f319a1f063, type: 3}
+    sortingLayerValue: 0
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
+    sortingLayer: 0
+  - sprite: {fileID: 21300000, guid: 92a1debe96a8e894ea407adca48e983c, type: 3}
+    sortingLayerValue: 0
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
+    sortingLayer: 0
   mashingAnimatedObj: {fileID: 0}
-  victorySprite: {fileID: 0}
-  loseSprite: {fileID: 0}
+  victorySprite: {fileID: 21300000, guid: 9910cd3034303494aa6a5799dd686865, type: 3}
+  loseSprite: {fileID: 21300000, guid: e9a89626325b1ae4ea8fe100d60d97b7, type: 3}
   barFullNb: 15
   pointLoseOnMiss: 1
   timerLevelNight: 10
