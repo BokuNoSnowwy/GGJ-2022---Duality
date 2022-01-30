@@ -1,16 +1,18 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameplayManager : MonoBehaviour
 {
     private bool _isPaused;
     public GameObject pauseMenu;
-    public GameObject optionMenu;
-
+    //public GameObject optionMenu;
+    public GameObject creditPanel;
+    
     public static GameplayManager Instance;
 
-    private AudioManager _audioManager;
+    //private AudioManager _audioManager;
 
     void Awake()
     {
@@ -24,7 +26,7 @@ public class GameplayManager : MonoBehaviour
 
     void Start()
     {
-        _audioManager = AudioManager.Instance;
+        //_audioManager = AudioManager.Instance;
     }
     
     
@@ -47,20 +49,18 @@ public class GameplayManager : MonoBehaviour
         pauseMenu.SetActive(true);
         Time.timeScale = 0f;
         
-        //TODO Activate Pause Menu
     }
 
     public void Resume()
     {
         _isPaused = false;
         pauseMenu.SetActive(false);
-        optionMenu.SetActive(false);
+        //optionMenu.SetActive(false);
         Time.timeScale = 1f;
         
-        //TODO Deactivate Pause Menu
     }
 
-    public void OpenOption()
+    /*public void OpenOption()
     {
         optionMenu.SetActive(true);
         pauseMenu.SetActive(false);
@@ -70,6 +70,16 @@ public class GameplayManager : MonoBehaviour
     {
         optionMenu.SetActive(false);
         pauseMenu.SetActive(true);
+    }*/
+    
+    public void DisplayCredit(bool value)
+    {
+        creditPanel.SetActive(value);
+    }
+
+    public void Restart()
+    {
+        SceneManager.LoadScene("ValentinScene");
     }
 
     public void Quit()

@@ -226,6 +226,8 @@ public class MashingGame : MonoBehaviour
         _hasWon = true;
         actualState = GameState.PauseGame;
         _levelManager.PlayVictoryAnim();
+
+        objMashingAnimated.GetComponent<SpriteRenderer>().sprite = _levelManager.actualLevel.victorySprite;
         
         Destroy(spriteKeyToMash);
     }

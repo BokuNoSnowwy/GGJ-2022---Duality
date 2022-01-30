@@ -64,6 +64,9 @@ public class LevelScriptable : ScriptableObject
     public List<SceneElementsSprite> spriteListNight = new List<SceneElementsSprite>();
     public List<AnimFrame> mashingFrames = new List<AnimFrame>();
     [HideInInspector] public GameObject mashingAnimatedObj;
+
+    public Sprite victorySprite;
+    public Sprite loseSprite;
     
     public int barFullNb;
     public int pointLoseOnMiss;
