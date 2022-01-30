@@ -49,7 +49,7 @@ MonoBehaviour:
       posSprite: {x: 0, y: 0}
     animationController: {fileID: 9100000, guid: f59560bde62cf8542846cf9ad6d24d6b, type: 2}
     clip: {fileID: 7400000, guid: f6870344b52309444ba50daed6bcc39a, type: 2}
-    delayAnimation: 0
+    delayAnimation: 3
   spriteListNight: []
   mashingFrames:
   - sprite: {fileID: 21300000, guid: c129dde2e740fb84d8dd87f319a1f063, type: 3}
