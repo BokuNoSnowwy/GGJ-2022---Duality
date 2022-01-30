@@ -37,12 +37,14 @@ public class MashingGame : MonoBehaviour
 
     private LevelManager _levelManager;
 
+    /*
     public Animator a;
     public float timetest;
     public float frameNumber;
     public int frameWanted;
     public List<AnimFrame> animFrames = new List<AnimFrame>();
     public GameObject objSprite;
+    */
     
     void Start()
     {
@@ -57,9 +59,11 @@ public class MashingGame : MonoBehaviour
         _levelManager = LevelManager.Instance;
         actualState = GameState.PauseGame;
 
+        /*
         objSprite.GetComponent<SpriteRenderer>().sprite = animFrames[frameWanted].sprite;
         objSprite.transform.position = animFrames[frameWanted].pos;
         objSprite.transform.rotation = animFrames[frameWanted].rot;
+        */
     }
 
     public void StartNight()
@@ -153,13 +157,14 @@ public class MashingGame : MonoBehaviour
                 {
                     Debug.Log("Nice touch");
                     jauge.value += valueToAdd;
-
+/*
                     frameWanted++;
                     if (frameWanted >= animFrames.Count)
                         frameWanted = 0;
                     objSprite.GetComponent<SpriteRenderer>().sprite = animFrames[frameWanted].sprite;
                     objSprite.transform.position = animFrames[frameWanted].pos;
                     objSprite.transform.rotation = animFrames[frameWanted].rot;
+                    */
                 }
                 else
                 {

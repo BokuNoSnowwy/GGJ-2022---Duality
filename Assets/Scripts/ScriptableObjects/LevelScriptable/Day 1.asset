@@ -10,13 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4ee61525b5b7c2d48934b41f307f62e6, type: 3}
-  m_Name: Day 5
+  m_Name: Day 1
   m_EditorClassIdentifier: 
   animationClipListDay:
   - sprite:
       sprite: {fileID: 21300000, guid: cecb6c155b55f5f408b6f79bd90973ce, type: 3}
       sortingLayer: 0
-      sortingLayerValue: 0
       posSprite: {x: 3.143, y: -0.127}
     animationController: {fileID: 9100000, guid: 613db4049a2537a48bc38bd75ef61849, type: 2}
     clip: {fileID: 7400000, guid: e65dd3fc8153ea841b0ca8077fea86f3, type: 2}
@@ -24,7 +23,6 @@ MonoBehaviour:
   - sprite:
       sprite: {fileID: 21300000, guid: 2d3d97cba6797a2498d9183632a5a39f, type: 3}
       sortingLayer: 1
-      sortingLayerValue: 0
       posSprite: {x: -2.553, y: 0.815}
     animationController: {fileID: 9100000, guid: 46e08030c3b1001459b0e66f77213aa2, type: 2}
     clip: {fileID: 7400000, guid: 9882771f988f624458f5bff65bcdebef, type: 2}
@@ -32,11 +30,9 @@ MonoBehaviour:
   spriteListDay:
   - sprite: {fileID: 21300000, guid: 374b2f0398d18244a94106b26eb4aa15, type: 3}
     sortingLayer: 2
-    sortingLayerValue: 0
     posSprite: {x: 0, y: 0}
   - sprite: {fileID: 21300000, guid: b8e19d08043e04b498625b2e0eedcf21, type: 3}
     sortingLayer: 0
-    sortingLayerValue: 0
     posSprite: {x: -1.79, y: -0.51}
   timerLevelDay: 10
   audioLevelDay: {fileID: 8300000, guid: ab27a27423a239c45b997fc6af6f0838, type: 3}
@@ -45,22 +41,16 @@ MonoBehaviour:
     timerToPlay: 2.5
   animationClipListNight:
   - sprite:
-      sprite: {fileID: 21300000, guid: c129dde2e740fb84d8dd87f319a1f063, type: 3}
+      sprite: {fileID: 21300000, guid: bff466dad492c2c4fb8365b8b83b66ae, type: 3}
       sortingLayer: 0
-      sortingLayerValue: 0
-      posSprite: {x: -2.37, y: -0.11}
-    animationController: {fileID: 9100000, guid: 0bb15025e47139c46adbd212cfb00c9a, type: 2}
-    clip: {fileID: 7400000, guid: 92525f2e34812e847be1edd4d9103933, type: 2}
+      posSprite: {x: -3.17, y: 0.5}
+    animationController: {fileID: 9100000, guid: 0da644b6d5ef5134589b279431974375, type: 2}
+    clip: {fileID: 7400000, guid: 642b33a2f7289b946b4574ca50f725ec, type: 2}
     delayAnimation: 0
-  - sprite:
-      sprite: {fileID: 21300000, guid: 6846ccb3122b10149b46e1eeff432a2b, type: 3}
-      sortingLayer: 2
-      sortingLayerValue: 0
-      posSprite: {x: 0, y: 0}
-    animationController: {fileID: 9100000, guid: f59560bde62cf8542846cf9ad6d24d6b, type: 2}
-    clip: {fileID: 7400000, guid: f6870344b52309444ba50daed6bcc39a, type: 2}
-    delayAnimation: 0
-  spriteListNight: []
+  spriteListNight:
+  - sprite: {fileID: 21300000, guid: 4e8b5bf7cf8e8d8479e8b7e617a1b1ff, type: 3}
+    sortingLayer: 2
+    posSprite: {x: 0, y: 0}
   barFullNb: 15
   pointLoseOnMiss: 1
   timerLevelNight: 10

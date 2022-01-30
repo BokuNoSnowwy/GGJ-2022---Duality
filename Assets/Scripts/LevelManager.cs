@@ -256,6 +256,7 @@ public class LevelManager : MonoBehaviour
             sprite.transform.position = element.posSprite;
             spriteR.sprite = element.sprite;
             spriteR.sortingLayerID = SortingLayer.NameToID(element.sortingLayer.ToString());
+            spriteR.sortingOrder = element.sortingLayerValue;
 
             spriteSceneList.Add(sprite);
         }
@@ -280,6 +281,7 @@ public class LevelManager : MonoBehaviour
             spriteAnim.animatorController = element.animationController;
 
             sprite.GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID(element.sprite.sortingLayer.ToString());
+            sprite.GetComponent<SpriteRenderer>().sortingOrder = element.sprite.sortingLayerValue;
             //Add the GO to the list 
             spriteSceneAnimationList.Add(sprite);
         }
