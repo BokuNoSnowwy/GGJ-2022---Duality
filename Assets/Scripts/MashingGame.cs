@@ -97,8 +97,8 @@ public class MashingGame : MonoBehaviour
     public void PrintSpriteOnScreen()
     {
         Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(
-            Random.Range(0 + keyToMash.spriteKeyNotMash.rect.width, Screen.width - keyToMash.spriteKeyNotMash.rect.width),
-            Random.Range(0 + keyToMash.spriteKeyNotMash.rect.height, Screen.height - keyToMash.spriteKeyNotMash.rect.height), 
+            Random.Range(0 + keyToMash.spriteKeyNotMash.rect.width / 2, Screen.width - keyToMash.spriteKeyNotMash.rect.width / 2),
+            Random.Range(0 + keyToMash.spriteKeyNotMash.rect.height / 2, Screen.height - keyToMash.spriteKeyNotMash.rect.height / 2), 
             Camera.main.farClipPlane / 2));
         
         spriteKeyToMash.transform.position = pos;
