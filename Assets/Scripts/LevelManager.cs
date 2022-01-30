@@ -398,6 +398,7 @@ public class LevelManager : MonoBehaviour
                 indexLevel++;
             else
                 SceneManager.LoadScene("VictoryScene");
+            stateDay = StateDay.Day;
         }
     }
 
