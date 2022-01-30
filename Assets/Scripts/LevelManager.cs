@@ -31,6 +31,7 @@ public class LevelManager : MonoBehaviour
     [Header("UI Gestion")] 
     public Image fadePanel;
     public float timerFadePanel;
+    public Image chrono;
 
     [Header("Level Management")]
     public bool onScene;
@@ -104,6 +105,7 @@ public class LevelManager : MonoBehaviour
                         if (timerEndNight <= 0)
                         {
                             NextScene();
+                            chrono.gameObject.SetActive(false);
                             mashingGame.HideSlider(true);
                             onAnimationEndNight = false;
                         }
@@ -111,6 +113,7 @@ public class LevelManager : MonoBehaviour
                     else
                     {
                         timerLevel -= Time.deltaTime;
+                        chrono.fillAmount = 1 - (timerLevel +4) / actualLevel.timerLevelNight;
                         if (timerLevel <= 0)
                         {
                             //Change animation
@@ -190,6 +193,7 @@ public class LevelManager : MonoBehaviour
             if (stateDay == StateDay.Night)
             {
                 
+                chrono.gameObject.SetActive(true);
                 Debug.Log("MashingGame Start");
                 mashingGame.StartNight();
             }

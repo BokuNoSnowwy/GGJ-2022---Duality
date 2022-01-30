@@ -45,15 +45,7 @@ MonoBehaviour:
     timerToPlay: 0
   - audioClip: {fileID: 8300000, guid: 29b1d61093c8cc34193ac04f77f43170, type: 3}
     timerToPlay: 5.3
-  animationClipListNight:
-  - sprite:
-      sprite: {fileID: 21300000, guid: bff466dad492c2c4fb8365b8b83b66ae, type: 3}
-      sortingLayer: 0
-      sortingLayerValue: 0
-      posSprite: {x: -3.17, y: 0.5}
-    animationController: {fileID: 9100000, guid: 0da644b6d5ef5134589b279431974375, type: 2}
-    clip: {fileID: 7400000, guid: 642b33a2f7289b946b4574ca50f725ec, type: 2}
-    delayAnimation: 0
+  animationClipListNight: []
   spriteListNight:
   - sprite: {fileID: 21300000, guid: 4e8b5bf7cf8e8d8479e8b7e617a1b1ff, type: 3}
     sortingLayer: 2
@@ -61,11 +53,15 @@ MonoBehaviour:
     posSprite: {x: 0, y: 0}
   mashingFrames:
   - sprite: {fileID: 21300000, guid: bff466dad492c2c4fb8365b8b83b66ae, type: 3}
-    pos: {x: 0, y: 0, z: 0}
+    sortingLayerValue: 0
+    pos: {x: -3.17, y: 0.5, z: 0}
     rot: {x: 0, y: 0, z: 0, w: 0}
+    sortingLayer: 0
   - sprite: {fileID: 21300000, guid: 7ea6f7a56b101b34f971fc6b3de65d41, type: 3}
-    pos: {x: 0, y: 0, z: 0}
+    sortingLayerValue: 0
+    pos: {x: -3.17, y: 0.5, z: 0}
     rot: {x: 0, y: 0, z: 0, w: 0}
+    sortingLayer: 0
   mashingAnimatedObj: {fileID: 0}
   barFullNb: 15
   pointLoseOnMiss: 1
