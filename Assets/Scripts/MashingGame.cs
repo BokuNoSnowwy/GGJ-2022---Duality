@@ -162,7 +162,11 @@ public class MashingGame : MonoBehaviour
         if (actualState == GameState.InGame)
         {
             if (e.type == EventType.KeyDown && e.keyCode == keyToMash.keyCode)
+            {
                 spriteKeyToMash.GetComponent<SpriteRenderer>().sprite = keyToMash.spriteKeyMashed;
+                Camera.main.DOShakePosition(0.1f, 0.1f);
+            }
+
             if (e.type == EventType.KeyUp)
             {
                 if (e.keyCode == keyToMash.keyCode)
