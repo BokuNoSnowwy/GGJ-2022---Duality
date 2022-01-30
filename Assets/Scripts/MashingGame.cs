@@ -238,6 +238,8 @@ public class MashingGame : MonoBehaviour
         actualState = GameState.PauseGame;
         _levelManager.PlayLoseAnim();
         
+        objMashingAnimated.GetComponent<SpriteRenderer>().sprite = _levelManager.actualLevel.loseSprite;
+        
         Destroy(spriteKeyToMash);
     }
 }

@@ -44,20 +44,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listLevel:
-  - {fileID: 11400000, guid: d28f356b6e5ddcf408492e5440bee727, type: 2}
+  - {fileID: 11400000, guid: f504a6ef33f799a4ca7260c459f28d6e, type: 2}
+  - {fileID: 11400000, guid: 8bcfabbb4059ba2419d6c76cba319747, type: 2}
+  - {fileID: 11400000, guid: 0c028fd5a35c9ff4eb46a9b736ea66e5, type: 2}
+  - {fileID: 11400000, guid: 720bb10c277cad1449bbdeb57cbff5e4, type: 2}
+  - {fileID: 11400000, guid: 3a54dc4b50b86bd4ab0fe40fbae94944, type: 2}
   actualLevel: {fileID: 0}
+  mashingGame: {fileID: 0}
   bgmSource: {fileID: 0}
   sfxSourceList: []
   audioSourcePrefab: {fileID: 4414340628349310409, guid: 0fa4c892cd52ff94dbe9033709854909, type: 3}
+  victoryClip: {fileID: 8300000, guid: 4414a882af14d5d419f69917d28f6a18, type: 3}
+  loseClip: {fileID: 8300000, guid: 3444f133adc210f4c82299b568bf1ca7, type: 3}
   fadePanel: {fileID: 0}
   timerFadePanel: 2
+  chrono: {fileID: 0}
   onScene: 0
   stateDay: 0
   indexLevel: 0
   onLevelTimer: 0
   timerLevel: 0
-  barFullNb: 0
-  keyCodesList: 
+  keyCodesList: []
   onAnimationEndNight: 0
   timerEndNight: 0
   prefabSceneSprite: {fileID: 5702355690535850283, guid: 1899271c6a0d2db40ac5792af4ef11e1, type: 3}
