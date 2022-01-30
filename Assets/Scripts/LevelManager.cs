@@ -397,7 +397,7 @@ public class LevelManager : MonoBehaviour
             if (indexLevel < listLevel.Count)
                 indexLevel++;
             else
-                SceneManager.LoadScene("VictoryScene");
+                SceneManager.LoadScene("VictoryScene"); 
             stateDay = StateDay.Day;
         }
     }
