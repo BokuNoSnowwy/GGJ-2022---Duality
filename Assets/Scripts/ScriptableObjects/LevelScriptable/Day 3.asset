@@ -43,26 +43,49 @@ MonoBehaviour:
   sfxSceneList:
   - audioClip: {fileID: 8300000, guid: a39157389c9cb3643b730f360cf95947, type: 3}
     timerToPlay: 2.5
-  animationClipListNight:
-  - sprite:
-      sprite: {fileID: 21300000, guid: bff466dad492c2c4fb8365b8b83b66ae, type: 3}
-      sortingLayer: 0
-      sortingLayerValue: 0
-      posSprite: {x: -3.17, y: 0.5}
-    animationController: {fileID: 9100000, guid: 82e0a5fd9bbcbaf4d8ce63e5ab158318, type: 2}
-    clip: {fileID: 7400000, guid: 642b33a2f7289b946b4574ca50f725ec, type: 2}
-    delayAnimation: 0
+  animationClipListNight: []
   spriteListNight:
-  - sprite: {fileID: 21300000, guid: 4e8b5bf7cf8e8d8479e8b7e617a1b1ff, type: 3}
+  - sprite: {fileID: 21300000, guid: f13f2528bd317384ea553193b3d630ac, type: 3}
     sortingLayer: 2
     sortingLayerValue: 0
     posSprite: {x: 0, y: 0}
+  - sprite: {fileID: 21300000, guid: 9635dc8e3ed592d458befc28a4aecf72, type: 3}
+    sortingLayer: 0
+    sortingLayerValue: 0
+    posSprite: {x: 0, y: 0}
+  mashingFrames:
+  - sprite: {fileID: 21300000, guid: 35911d1d81df84a448237ac1cd6cc5da, type: 3}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
+    sortingLayer: 1
+  - sprite: {fileID: 21300000, guid: dcf0c7fe12555a949b53d83a38641a00, type: 3}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
+    sortingLayer: 1
+  - sprite: {fileID: 21300000, guid: a66d41b5ed4ea5541bf326030e8732ad, type: 3}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
+    sortingLayer: 1
+  - sprite: {fileID: 21300000, guid: c3a64ae92acabf0468c8e4399ae1fc34, type: 3}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
+    sortingLayer: 1
+  mashingAnimatedObj: {fileID: 0}
   barFullNb: 15
   pointLoseOnMiss: 1
   timerLevelNight: 10
   audioLevelNight: {fileID: 8300000, guid: a39157389c9cb3643b730f360cf95947, type: 3}
   sfxNightList: []
-  keyCodesList: 7a00000065000000
+  keyCodesList:
+  - keyCode: 121
+    spriteKeyNotMash: {fileID: 21300000, guid: 569e8eff430df4c4ea2bddb816219872, type: 3}
+    spriteKeyMashed: {fileID: 21300000, guid: 569e8eff430df4c4ea2bddb816219872, type: 3}
+  - keyCode: 107
+    spriteKeyNotMash: {fileID: 21300000, guid: 302a47f0719c018448b6a0c721fd3c43, type: 3}
+    spriteKeyMashed: {fileID: 21300000, guid: 0557b8772f756e5448a9a01a53c0c44d, type: 3}
+  - keyCode: 99
+    spriteKeyNotMash: {fileID: 21300000, guid: 13bb13b1d4a08c746a1b668bace22f68, type: 3}
+    spriteKeyMashed: {fileID: 21300000, guid: 94c501c7335490745880ecc2c4f9b9ad, type: 3}
   timerBeforeKeyChange: 2
   ratioOverTime: 0.1
   valueToWithdraw: 1

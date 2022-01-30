@@ -43,28 +43,32 @@ MonoBehaviour:
   sfxSceneList:
   - audioClip: {fileID: 8300000, guid: 6a5da8e3fd2bd834b9aa85b0f5e4e9f0, type: 3}
     timerToPlay: 0
-  animationClipListNight:
-  - sprite:
-      sprite: {fileID: 21300000, guid: bff466dad492c2c4fb8365b8b83b66ae, type: 3}
-      sortingLayer: 0
-      sortingLayerValue: 0
-      posSprite: {x: -3.17, y: 0.5}
-    animationController: {fileID: 9100000, guid: 0da644b6d5ef5134589b279431974375, type: 2}
-    clip: {fileID: 7400000, guid: 642b33a2f7289b946b4574ca50f725ec, type: 2}
-    delayAnimation: 0
+  animationClipListNight: []
   spriteListNight:
   - sprite: {fileID: 21300000, guid: 4e8b5bf7cf8e8d8479e8b7e617a1b1ff, type: 3}
     sortingLayer: 2
     sortingLayerValue: 0
     posSprite: {x: 0, y: 0}
-  mashingFrames: []
+  mashingFrames:
+  - sprite: {fileID: 21300000, guid: bff466dad492c2c4fb8365b8b83b66ae, type: 3}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
+  - sprite: {fileID: 21300000, guid: 7ea6f7a56b101b34f971fc6b3de65d41, type: 3}
+    pos: {x: 0, y: 0, z: 0}
+    rot: {x: 0, y: 0, z: 0, w: 0}
   mashingAnimatedObj: {fileID: 0}
   barFullNb: 15
   pointLoseOnMiss: 1
   timerLevelNight: 10
   audioLevelNight: {fileID: 8300000, guid: a39157389c9cb3643b730f360cf95947, type: 3}
   sfxNightList: []
-  keyCodesList: 7a00000065000000
+  keyCodesList:
+  - keyCode: 97
+    spriteKeyNotMash: {fileID: 21300000, guid: 92d9791431a082a43bb817885051412b, type: 3}
+    spriteKeyMashed: {fileID: 21300000, guid: de076b349f37a2e4aa51a42fbf94fcd6, type: 3}
+  - keyCode: 99
+    spriteKeyNotMash: {fileID: 21300000, guid: 13bb13b1d4a08c746a1b668bace22f68, type: 3}
+    spriteKeyMashed: {fileID: 21300000, guid: 94c501c7335490745880ecc2c4f9b9ad, type: 3}
   timerBeforeKeyChange: 2
   ratioOverTime: 0.1
   valueToWithdraw: 1
