@@ -354,6 +354,7 @@ public class LevelManager : MonoBehaviour
         
         //Change BGM 
         bgmSource.Stop();
+        bgmSource.loop = false;
         bgmSource.clip = victoryClip;
         bgmSource.Play();
         
@@ -372,6 +373,7 @@ public class LevelManager : MonoBehaviour
         
         //Change BGM 
         bgmSource.Stop();
+        bgmSource.loop = false;
         bgmSource.clip = loseClip;
         bgmSource.Play();
         

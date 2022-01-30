@@ -119,5 +119,5 @@ MonoBehaviour:
   timerBeforeKeyChange: 2
   ratioOverTime: 0.1
   valueToWithdraw: 1
-  timerVictoryAnim: 5
-  timerLoseAnim: 5
+  timerVictoryAnim: 4
+  timerLoseAnim: 4
