@@ -24,6 +24,7 @@ public class SceneElementsSprite
 {
     public Sprite sprite;
     public SortingLayerEnum sortingLayer;
+    public int sortingLayerValue = 0;
     public Vector2 posSprite;
 }
 

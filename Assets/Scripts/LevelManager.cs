@@ -23,6 +23,10 @@ public class LevelManager : MonoBehaviour
     public List<AudioSource> sfxSourceList = new List<AudioSource>();
     public GameObject audioSourcePrefab;
     
+    //Ater Night
+    public AudioClip victoryClip;
+    public AudioClip loseClip;
+    
     
     [Header("UI Gestion")] 
     public Image fadePanel;
@@ -47,6 +51,8 @@ public class LevelManager : MonoBehaviour
     public GameObject prefabSceneSpriteAnimation;
     public List<GameObject> spriteSceneList = new List<GameObject>();
     public List<GameObject> spriteSceneAnimationList = new List<GameObject>();
+    
+
 
     private void Awake()
     {
@@ -107,7 +113,6 @@ public class LevelManager : MonoBehaviour
                         timerLevel -= Time.deltaTime;
                         if (timerLevel <= 0)
                         {
-                            onAnimationEndNight = true;
                             //Change animation
                             PlayLoseAnim();
                         }
@@ -169,14 +174,7 @@ public class LevelManager : MonoBehaviour
                 Destroy(spriteGo);
             }
             spriteSceneAnimationList.Clear();
-
-            foreach (var audioGO in sfxSourceList)
-            {
-                Destroy(audioGO);
-            }
-            sfxSourceList.Clear();
-            bgmSource.clip = null;
-                
+            DestroySFX();
             ChangeStateDay();
             SetupValuesFromLevelScriptable(GetLevelFromIndex(indexLevel));
             PlayScene();
@@ -218,6 +216,7 @@ public class LevelManager : MonoBehaviour
                 AudioSource audioSource = Instantiate(audioSourcePrefab).GetComponent<AudioSource>();
                 audioSource.clip = audio.audioClip;
                 audioSource.PlayDelayed(audio.timerToPlay);
+                sfxSourceList.Add(audioSource);
             }
 
             if (actualLevel.audioLevelDay != null)
@@ -257,6 +256,7 @@ public class LevelManager : MonoBehaviour
             sprite.transform.position = element.posSprite;
             spriteR.sprite = element.sprite;
             spriteR.sortingLayerID = SortingLayer.NameToID(element.sortingLayer.ToString());
+            spriteR.sortingOrder = element.sortingLayerValue;
 
             spriteSceneList.Add(sprite);
         }
@@ -281,6 +281,7 @@ public class LevelManager : MonoBehaviour
             spriteAnim.animatorController = element.animationController;
 
             sprite.GetComponent<SpriteRenderer>().sortingLayerID = SortingLayer.NameToID(element.sprite.sortingLayer.ToString());
+            sprite.GetComponent<SpriteRenderer>().sortingOrder = element.sprite.sortingLayerValue;
             //Add the GO to the list 
             spriteSceneAnimationList.Add(sprite);
         }
@@ -325,11 +326,28 @@ public class LevelManager : MonoBehaviour
     }
 
 
-
+    private void DestroySFX()
+    {
+        foreach (var audioGO in sfxSourceList)
+        {
+            Destroy(audioGO);
+        }
+        sfxSourceList.Clear();
+        bgmSource.clip = null;
+    }
+    
     public void PlayVictoryAnim()
     {
         timerEndNight = actualLevel.timerVictoryAnim;
         onAnimationEndNight = true;
+        
+        DestroySFX();
+        
+        //Change BGM 
+        bgmSource.Stop();
+        bgmSource.clip = victoryClip;
+        bgmSource.Play();
+        
         foreach (var spriteGO in spriteSceneAnimationList)
         {
             spriteGO.GetComponent<AnimatedSprite>().PlayVictoryClip();
@@ -340,6 +358,13 @@ public class LevelManager : MonoBehaviour
     {
         timerEndNight = actualLevel.timerLoseAnim;
         onAnimationEndNight = true;
+        
+        DestroySFX();
+        
+        //Change BGM 
+        bgmSource.Stop();
+        bgmSource.clip = loseClip;
+        bgmSource.Play();
         
         foreach (var spriteGO in spriteSceneAnimationList)
         {
