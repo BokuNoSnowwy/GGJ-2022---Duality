@@ -38,7 +38,7 @@ MonoBehaviour:
     sortingLayer: 0
     sortingLayerValue: 0
     posSprite: {x: -1.79, y: -0.51}
-  timerLevelDay: 10
+  timerLevelDay: 7
   audioLevelDay: {fileID: 8300000, guid: 7a70d931c1097a248a946c520f48c348, type: 3}
   sfxSceneList:
   - audioClip: {fileID: 8300000, guid: ecd8d2e4837f70b46927a2ee0d33f126, type: 3}
