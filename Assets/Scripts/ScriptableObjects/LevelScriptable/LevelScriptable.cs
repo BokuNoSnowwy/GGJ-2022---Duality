@@ -37,6 +37,14 @@ public class SceneElementAnimatedSprite
     public float delayAnimation;
 }
 
+[Serializable]
+public class AnimFrame
+{
+    public Sprite sprite;
+    public Vector3 pos;
+    public Quaternion rot;
+}
+
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/LevelScriptable", order = 1)]
 public class LevelScriptable : ScriptableObject
 {
@@ -51,6 +59,8 @@ public class LevelScriptable : ScriptableObject
     [Header("Night Part")]
     public List<SceneElementAnimatedSprite> animationClipListNight = new List<SceneElementAnimatedSprite>();
     public List<SceneElementsSprite> spriteListNight = new List<SceneElementsSprite>();
+    public List<AnimFrame> mashingFrames = new List<AnimFrame>();
+    [HideInInspector] public GameObject mashingAnimatedObj;
     
     public int barFullNb;
     public int pointLoseOnMiss;

@@ -187,6 +187,7 @@ public class LevelManager : MonoBehaviour
             fadePanel.gameObject.SetActive(false);
             if (stateDay == StateDay.Night)
             {
+                CreateMashingAnimatedSprite();
                 Debug.Log("MashingGame Start");
                 mashingGame.StartNight();
             }
@@ -285,6 +286,18 @@ public class LevelManager : MonoBehaviour
             //Add the GO to the list 
             spriteSceneAnimationList.Add(sprite);
         }
+    }
+
+    private void CreateMashingAnimatedSprite()
+    {
+        GameObject sprite = Instantiate(prefabSceneSprite);
+        sprite.GetComponent<SpriteRenderer>().sprite = actualLevel.mashingFrames[0].sprite;
+
+        sprite.transform.position = actualLevel.mashingFrames[0].pos;
+        sprite.transform.rotation = actualLevel.mashingFrames[0].rot;
+        
+        spriteSceneList.Add(sprite);
+        actualLevel.mashingAnimatedObj = sprite;
     }
 
     private List<SceneElementsSprite> GetSceneSpritesList()

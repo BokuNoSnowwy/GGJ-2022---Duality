@@ -28,6 +28,7 @@ public class MashingGame : MonoBehaviour
     [Tooltip("La touche à masher")] public KeyCode keyToMash;
     [Tooltip("Le temps avant chaque changement de lettre")] public float timerBeforeKeyChange;
     private float _chrono;
+    private int _indexFrame;
 
     [Header("Jauge")]
     [Tooltip("La jauge")] public Slider jauge;
@@ -36,15 +37,9 @@ public class MashingGame : MonoBehaviour
     [Tooltip("A quel point la jauge descend si on ne fait rien")] public float ratioOverTime;
 
     private LevelManager _levelManager;
-
-    /*
-    public Animator a;
-    public float timetest;
-    public float frameNumber;
-    public int frameWanted;
-    public List<AnimFrame> animFrames = new List<AnimFrame>();
-    public GameObject objSprite;
-    */
+    private List<AnimFrame> nightFrames;
+    private GameObject objMashingAnimated;
+    
     
     void Start()
     {
@@ -58,12 +53,6 @@ public class MashingGame : MonoBehaviour
         */
         _levelManager = LevelManager.Instance;
         actualState = GameState.PauseGame;
-
-        /*
-        objSprite.GetComponent<SpriteRenderer>().sprite = animFrames[frameWanted].sprite;
-        objSprite.transform.position = animFrames[frameWanted].pos;
-        objSprite.transform.rotation = animFrames[frameWanted].rot;
-        */
     }
 
     public void StartNight()
@@ -82,6 +71,9 @@ public class MashingGame : MonoBehaviour
         ratioOverTime = _levelManager.actualLevel.ratioOverTime;
         valueToAdd = 1;
         valueToWithdraw = _levelManager.actualLevel.valueToWithdraw;
+        _indexFrame = 0;
+        nightFrames = new List<AnimFrame>(_levelManager.actualLevel.mashingFrames);
+        objMashingAnimated = _levelManager.actualLevel.mashingAnimatedObj;
         
         keyCodeList = new List<KeyCode>(_levelManager.actualLevel.keyCodesList);
         int randomInt = Random.Range(0, keyCodeList.Count);
@@ -157,14 +149,15 @@ public class MashingGame : MonoBehaviour
                 {
                     Debug.Log("Nice touch");
                     jauge.value += valueToAdd;
-/*
-                    frameWanted++;
-                    if (frameWanted >= animFrames.Count)
-                        frameWanted = 0;
-                    objSprite.GetComponent<SpriteRenderer>().sprite = animFrames[frameWanted].sprite;
-                    objSprite.transform.position = animFrames[frameWanted].pos;
-                    objSprite.transform.rotation = animFrames[frameWanted].rot;
-                    */
+
+                    _indexFrame++;
+                    if (_indexFrame >= nightFrames.Count)
+                        _indexFrame = 0;
+
+                    objMashingAnimated.GetComponent<SpriteRenderer>().sprite =
+                        _levelManager.actualLevel.mashingFrames[_indexFrame].sprite;
+                    objMashingAnimated.transform.position = _levelManager.actualLevel.mashingFrames[_indexFrame].pos;
+                    objMashingAnimated.transform.rotation = _levelManager.actualLevel.mashingFrames[_indexFrame].rot;
                 }
                 else
                 {
@@ -217,10 +210,3 @@ public class MashingGame : MonoBehaviour
     }
 }
 
-[Serializable]
-public class AnimFrame
-{
-    public Sprite sprite;
-    public Vector3 pos;
-    public Quaternion rot;
-}
