@@ -113,7 +113,7 @@ public class LevelManager : MonoBehaviour
                     else
                     {
                         timerLevel -= Time.deltaTime;
-                        chrono.fillAmount = 1 - (timerLevel +4) / actualLevel.timerLevelNight;
+                        chrono.fillAmount = 1 - timerLevel / (actualLevel.timerLevelNight - 4);
                         if (timerLevel <= 0)
                         {
                             //Change animation
@@ -201,6 +201,7 @@ public class LevelManager : MonoBehaviour
     }
 
 
+    
 
     private void SetupTimer()
     {
@@ -239,7 +240,7 @@ public class LevelManager : MonoBehaviour
             if (actualLevel.audioLevelNight != null)
             {
                 bgmSource.clip = actualLevel.audioLevelNight;
-                bgmSource.Play();
+                bgmSource.PlayDelayed(0.8f);
             }
         }
     }

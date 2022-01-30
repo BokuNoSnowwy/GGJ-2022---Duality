@@ -88,7 +88,6 @@ public class MashingGame : MonoBehaviour
         startGameTxt.text = null;
         startGameTimer = 3f;
         actualState = GameState.InGame;
-
         spriteKeyToMash = Instantiate(_levelManager.prefabSceneSprite);
         PrintSpriteOnScreen();
     }
