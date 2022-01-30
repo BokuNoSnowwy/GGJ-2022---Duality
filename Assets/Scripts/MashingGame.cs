@@ -24,11 +24,12 @@ public class MashingGame : MonoBehaviour
     [Tooltip("Texte du décompte (temporaire)")] public TMP_Text startGameTxt;
     
     [Header("Mashing")]
-    [Tooltip("Liste des touches qui peuvent être à masher")] public List<KeyCode> keyCodeList = new List<KeyCode>();
-    [Tooltip("La touche à masher")] public KeyCode keyToMash;
+    [Tooltip("Liste des touches qui peuvent être à masher")] public List<KeyToMash> keyCodeList = new List<KeyToMash>();
+    [Tooltip("La touche à masher")] public KeyToMash keyToMash;
     [Tooltip("Le temps avant chaque changement de lettre")] public float timerBeforeKeyChange;
     private float _chrono;
     private int _indexFrame;
+    public GameObject spriteKeyToMash;
 
     [Header("Jauge")]
     [Tooltip("La jauge")] public Slider jauge;
@@ -75,7 +76,8 @@ public class MashingGame : MonoBehaviour
         nightFrames = new List<AnimFrame>(_levelManager.actualLevel.mashingFrames);
         objMashingAnimated = _levelManager.actualLevel.mashingAnimatedObj;
         
-        keyCodeList = new List<KeyCode>(_levelManager.actualLevel.keyCodesList);
+        
+        keyCodeList = new List<KeyToMash>(_levelManager.actualLevel.keyCodesList);
         int randomInt = Random.Range(0, keyCodeList.Count);
         keyToMash = keyCodeList[randomInt];
         keyCodeList.RemoveAt(randomInt);
@@ -86,6 +88,21 @@ public class MashingGame : MonoBehaviour
         startGameTxt.text = null;
         startGameTimer = 3f;
         actualState = GameState.InGame;
+
+        spriteKeyToMash = Instantiate(_levelManager.prefabSceneSprite);
+        PrintSpriteOnScreen();
+    }
+
+    public void PrintSpriteOnScreen()
+    {
+        Vector3 pos = Camera.main.ScreenToWorldPoint(new Vector3(
+            Random.Range(0 + keyToMash.spriteKeyNotMash.rect.width / 2, Screen.width - keyToMash.spriteKeyNotMash.rect.width / 2),
+            Random.Range(0 + keyToMash.spriteKeyNotMash.rect.height / 2, Screen.height - keyToMash.spriteKeyNotMash.rect.height / 2), 
+            Camera.main.farClipPlane / 2));
+        
+        spriteKeyToMash.transform.position = pos;
+        spriteKeyToMash.GetComponent<SpriteRenderer>().sprite = keyToMash.spriteKeyNotMash;
+        spriteKeyToMash.GetComponent<SpriteRenderer>().sortingOrder = 10;
     }
 
     
@@ -98,7 +115,8 @@ public class MashingGame : MonoBehaviour
             _chrono += Time.deltaTime;
             if (_chrono >= timerBeforeKeyChange)
             {
-                keyToMash = NewKey();
+                keyToMash.keyCode = NewKey();
+                PrintSpriteOnScreen();
                 _chrono = 0f;
             }
 
@@ -130,7 +148,7 @@ public class MashingGame : MonoBehaviour
     KeyCode NewKey()
     {
         int randomInt = Random.Range(0, keyCodeList.Count);
-        KeyCode k = keyCodeList[randomInt];
+        KeyCode k = keyCodeList[randomInt].keyCode;
         keyCodeList.RemoveAt(randomInt);
         keyCodeList.Add(keyToMash);
 
@@ -143,9 +161,11 @@ public class MashingGame : MonoBehaviour
 
         if (actualState == GameState.InGame)
         {
+            if (e.type == EventType.KeyDown && e.keyCode == keyToMash.keyCode)
+                spriteKeyToMash.GetComponent<SpriteRenderer>().sprite = keyToMash.spriteKeyMashed;
             if (e.type == EventType.KeyUp)
             {
-                if (e.keyCode == keyToMash)
+                if (e.keyCode == keyToMash.keyCode)
                 {
                     Debug.Log("Nice touch");
                     jauge.value += valueToAdd;
@@ -158,6 +178,7 @@ public class MashingGame : MonoBehaviour
                         _levelManager.actualLevel.mashingFrames[_indexFrame].sprite;
                     objMashingAnimated.transform.position = _levelManager.actualLevel.mashingFrames[_indexFrame].pos;
                     objMashingAnimated.transform.rotation = _levelManager.actualLevel.mashingFrames[_indexFrame].rot;
+                    spriteKeyToMash.GetComponent<SpriteRenderer>().sprite = keyToMash.spriteKeyNotMash;
                 }
                 else
                 {
@@ -200,6 +221,8 @@ public class MashingGame : MonoBehaviour
         _hasWon = true;
         actualState = GameState.PauseGame;
         _levelManager.PlayVictoryAnim();
+        
+        Destroy(spriteKeyToMash);
     }
 
     public void Lose()
@@ -207,6 +230,15 @@ public class MashingGame : MonoBehaviour
         Debug.Log("Lose");
         actualState = GameState.PauseGame;
         _levelManager.PlayLoseAnim();
+        
+        Destroy(spriteKeyToMash);
     }
 }
 
+[Serializable]
+public class KeyToMash
+{
+    public KeyCode keyCode;
+    public Sprite spriteKeyNotMash;
+    public Sprite spriteKeyMashed;
+}

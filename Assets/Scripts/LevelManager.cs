@@ -39,7 +39,7 @@ public class LevelManager : MonoBehaviour
     //level timer management
     public bool onLevelTimer;
     public float timerLevel;
-    public List<KeyCode> keyCodesList = new List<KeyCode>();
+    public List<KeyToMash> keyCodesList = new List<KeyToMash>();
     
     //Audio Source
     
