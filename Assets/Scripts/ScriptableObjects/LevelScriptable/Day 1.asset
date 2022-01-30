@@ -63,6 +63,8 @@ MonoBehaviour:
     rot: {x: 0, y: 0, z: 0, w: 0}
     sortingLayer: 0
   mashingAnimatedObj: {fileID: 0}
+  victorySprite: {fileID: 0}
+  loseSprite: {fileID: 0}
   barFullNb: 15
   pointLoseOnMiss: 1
   timerLevelNight: 10
@@ -78,5 +80,5 @@ MonoBehaviour:
   timerBeforeKeyChange: 2
   ratioOverTime: 0.1
   valueToWithdraw: 1
-  timerVictoryAnim: 5
-  timerLoseAnim: 5
+  timerVictoryAnim: 4
+  timerLoseAnim: 4
