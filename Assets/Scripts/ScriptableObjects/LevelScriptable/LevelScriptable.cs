@@ -41,6 +41,7 @@ public class SceneElementAnimatedSprite
 public class AnimFrame
 {
     public Sprite sprite;
+    public int sortingLayerValue = 0;
     public Vector3 pos;
     public Quaternion rot;
 

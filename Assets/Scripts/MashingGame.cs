@@ -177,6 +177,8 @@ public class MashingGame : MonoBehaviour
 
                     objMashingAnimated.GetComponent<SpriteRenderer>().sprite =
                         _levelManager.actualLevel.mashingFrames[_indexFrame].sprite;
+                    objMashingAnimated.GetComponent<SpriteRenderer>().sortingOrder =
+                        _levelManager.actualLevel.mashingFrames[_indexFrame].sortingLayerValue;
                     objMashingAnimated.GetComponent<SpriteRenderer>().sortingLayerName = _levelManager.actualLevel
                         .mashingFrames[_indexFrame].sortingLayer.ToString();
                     objMashingAnimated.transform.position = _levelManager.actualLevel.mashingFrames[_indexFrame].pos;
