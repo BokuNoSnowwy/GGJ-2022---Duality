@@ -47,6 +47,7 @@ public class GameplayManager : MonoBehaviour
     {
         _isPaused = true;
         pauseMenu.SetActive(true);
+        LevelManager.Instance.PauseSFX(true);
         Time.timeScale = 0f;
         
     }
@@ -55,7 +56,7 @@ public class GameplayManager : MonoBehaviour
     {
         _isPaused = false;
         pauseMenu.SetActive(false);
-        //optionMenu.SetActive(false);
+        LevelManager.Instance.PauseSFX(false);
         Time.timeScale = 1f;
         
     }
