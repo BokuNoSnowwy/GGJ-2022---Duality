@@ -33,7 +33,7 @@ MonoBehaviour:
   - sprite: {fileID: 21300000, guid: 374b2f0398d18244a94106b26eb4aa15, type: 3}
     sortingLayer: 2
     sortingLayerValue: 0
-    posSprite: {x: -0.2, y: 0}
+    posSprite: {x: 0, y: 0}
   - sprite: {fileID: 21300000, guid: b8e19d08043e04b498625b2e0eedcf21, type: 3}
     sortingLayer: 0
     sortingLayerValue: -2
