@@ -43,6 +43,8 @@ public class AnimFrame
     public Sprite sprite;
     public Vector3 pos;
     public Quaternion rot;
+
+    public SortingLayerEnum sortingLayer;
 }
 
 [CreateAssetMenu(fileName = "Data", menuName = "ScriptableObjects/LevelScriptable", order = 1)]

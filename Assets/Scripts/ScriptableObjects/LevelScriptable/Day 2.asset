@@ -107,6 +107,16 @@ MonoBehaviour:
   - keyCode: 99
     spriteKeyNotMash: {fileID: 21300000, guid: 13bb13b1d4a08c746a1b668bace22f68, type: 3}
     spriteKeyMashed: {fileID: 21300000, guid: 94c501c7335490745880ecc2c4f9b9ad, type: 3}
+  keyCodesList:
+  - keyCode: 97
+    spriteKeyNotMash: {fileID: 21300000, guid: 92d9791431a082a43bb817885051412b, type: 3}
+    spriteKeyMashed: {fileID: 21300000, guid: de076b349f37a2e4aa51a42fbf94fcd6, type: 3}
+  - keyCode: 99
+    spriteKeyNotMash: {fileID: 21300000, guid: 13bb13b1d4a08c746a1b668bace22f68, type: 3}
+    spriteKeyMashed: {fileID: 21300000, guid: 94c501c7335490745880ecc2c4f9b9ad, type: 3}
+  - keyCode: 107
+    spriteKeyNotMash: {fileID: 21300000, guid: 302a47f0719c018448b6a0c721fd3c43, type: 3}
+    spriteKeyMashed: {fileID: 21300000, guid: 0557b8772f756e5448a9a01a53c0c44d, type: 3}
   timerBeforeKeyChange: 2
   ratioOverTime: 0.1
   valueToWithdraw: 1

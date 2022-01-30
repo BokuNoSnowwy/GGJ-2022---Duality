@@ -180,13 +180,16 @@ public class LevelManager : MonoBehaviour
             SetupValuesFromLevelScriptable(GetLevelFromIndex(indexLevel));
             PlayScene();
             
+            if(stateDay == StateDay.Night)
+                CreateMashingAnimatedSprite();
+            
         }));
         sequence.Append(fadePanel.DOFade(0, 1f).SetEase(Ease.InQuint)).OnComplete(()=>
         {
             fadePanel.gameObject.SetActive(false);
             if (stateDay == StateDay.Night)
             {
-                CreateMashingAnimatedSprite();
+                
                 Debug.Log("MashingGame Start");
                 mashingGame.StartNight();
             }
@@ -292,6 +295,7 @@ public class LevelManager : MonoBehaviour
     {
         GameObject sprite = Instantiate(prefabSceneSprite);
         sprite.GetComponent<SpriteRenderer>().sprite = actualLevel.mashingFrames[0].sprite;
+        sprite.GetComponent<SpriteRenderer>().sortingLayerName = actualLevel.mashingFrames[0].sortingLayer.ToString();
 
         sprite.transform.position = actualLevel.mashingFrames[0].pos;
         sprite.transform.rotation = actualLevel.mashingFrames[0].rot;

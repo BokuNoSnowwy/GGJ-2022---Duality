@@ -1118,10 +1118,14 @@ Transform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &657304966
 =======
 --- !u!1 &687355965
 >>>>>>> Intégration
+=======
+--- !u!1 &687355965
+>>>>>>> kilian
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1130,25 +1134,34 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 657304968}
   - component: {fileID: 657304967}
   - component: {fileID: 657304969}
   m_Layer: 0
   m_Name: Night04_Foule
 =======
+=======
+>>>>>>> kilian
   - component: {fileID: 687355966}
   - component: {fileID: 687355967}
   m_Layer: 0
   m_Name: sprite_back_button
+<<<<<<< HEAD
 >>>>>>> Intégration
+=======
+>>>>>>> kilian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_IsActive: 0
 --- !u!212 &657304967
 =======
+=======
+>>>>>>> kilian
   m_IsActive: 1
 --- !u!4 &687355966
 Transform:
@@ -1165,17 +1178,24 @@ Transform:
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &687355967
+<<<<<<< HEAD
 >>>>>>> Intégration
+=======
+>>>>>>> kilian
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_GameObject: {fileID: 657304966}
 =======
   m_GameObject: {fileID: 687355965}
 >>>>>>> Intégration
+=======
+  m_GameObject: {fileID: 687355965}
+>>>>>>> kilian
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -1209,26 +1229,36 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 3ffdcbba07875cd46b8ca2596ca3772e, type: 3}
 =======
   m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7f27f11baf45ae149acf3dd94c434329, type: 3}
 >>>>>>> Intégration
+=======
+  m_SortingOrder: 1
+  m_Sprite: {fileID: 21300000, guid: 7f27f11baf45ae149acf3dd94c434329, type: 3}
+>>>>>>> kilian
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Size: {x: 16.363636, y: 11.427273}
 =======
   m_Size: {x: 1.5833334, y: 0.55}
 >>>>>>> Intégration
+=======
+  m_Size: {x: 1.5833334, y: 0.55}
+>>>>>>> kilian
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!4 &657304968
 Transform:
@@ -1265,6 +1295,8 @@ Animator:
   m_KeepAnimatorControllerStateOnDisable: 0
 =======
 >>>>>>> Intégration
+=======
+>>>>>>> kilian
 --- !u!1 &719054304
 GameObject:
   m_ObjectHideFlags: 0
@@ -4886,10 +4918,14 @@ SpriteRenderer:
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
 --- !u!1 &2093606127
 =======
 --- !u!1 &2080612541
 >>>>>>> Intégration
+=======
+--- !u!1 &2080612541
+>>>>>>> kilian
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4898,25 +4934,34 @@ GameObject:
   serializedVersion: 6
   m_Component:
 <<<<<<< HEAD
+<<<<<<< HEAD
   - component: {fileID: 2093606129}
   - component: {fileID: 2093606128}
   - component: {fileID: 2093606130}
   m_Layer: 0
   m_Name: Night04_Spotlight1
 =======
+=======
+>>>>>>> kilian
   - component: {fileID: 2080612542}
   - component: {fileID: 2080612543}
   m_Layer: 0
   m_Name: Sprite_margaux_desk
+<<<<<<< HEAD
 >>>>>>> Intégration
+=======
+>>>>>>> kilian
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_IsActive: 0
 --- !u!212 &2093606128
 =======
+=======
+>>>>>>> kilian
   m_IsActive: 1
 --- !u!4 &2080612542
 Transform:
@@ -4933,17 +4978,24 @@ Transform:
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &2080612543
+<<<<<<< HEAD
 >>>>>>> Intégration
+=======
+>>>>>>> kilian
 SpriteRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_GameObject: {fileID: 2093606127}
 =======
   m_GameObject: {fileID: 2080612541}
 >>>>>>> Intégration
+=======
+  m_GameObject: {fileID: 2080612541}
+>>>>>>> kilian
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -4977,26 +5029,36 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: cdb5884aa5ea91e4495b5297a93736d6, type: 3}
 =======
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2d3d97cba6797a2498d9183632a5a39f, type: 3}
 >>>>>>> Intégration
+=======
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 2d3d97cba6797a2498d9183632a5a39f, type: 3}
+>>>>>>> kilian
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
 <<<<<<< HEAD
+<<<<<<< HEAD
   m_Size: {x: 16.363636, y: 11.427273}
 =======
   m_Size: {x: 2.8, y: 2.2833333}
 >>>>>>> Intégration
+=======
+  m_Size: {x: 2.8, y: 2.2833333}
+>>>>>>> kilian
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+<<<<<<< HEAD
 <<<<<<< HEAD
 --- !u!4 &2093606129
 Transform:
@@ -5033,6 +5095,8 @@ Animator:
   m_KeepAnimatorControllerStateOnDisable: 0
 =======
 >>>>>>> Intégration
+=======
+>>>>>>> kilian
 --- !u!1 &2101230461
 GameObject:
   m_ObjectHideFlags: 0
