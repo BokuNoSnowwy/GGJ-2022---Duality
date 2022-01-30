@@ -1296,10 +1296,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 167240313}
     - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
-      propertyPath: loseClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 3444f133adc210f4c82299b568bf1ca7, type: 3}
-    - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
       propertyPath: bgmSource
       value: 
       objectReference: {fileID: 2047166322}
@@ -1307,10 +1303,6 @@ PrefabInstance:
       propertyPath: fadePanel
       value: 
       objectReference: {fileID: 423184676}
-    - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
-      propertyPath: MashingGame
-      value: 
-      objectReference: {fileID: 1532118906}
     - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
       propertyPath: mashingGame
       value: 
