@@ -39,10 +39,8 @@ MonoBehaviour:
     sortingLayerValue: -2
     posSprite: {x: -1.79, y: -0.095}
   timerLevelDay: 10
-  audioLevelDay: {fileID: 8300000, guid: ab27a27423a239c45b997fc6af6f0838, type: 3}
-  sfxSceneList:
-  - audioClip: {fileID: 8300000, guid: a39157389c9cb3643b730f360cf95947, type: 3}
-    timerToPlay: 2.5
+  audioLevelDay: {fileID: 8300000, guid: 7a70d931c1097a248a946c520f48c348, type: 3}
+  sfxSceneList: []
   animationClipListNight: []
   spriteListNight:
   - sprite: {fileID: 21300000, guid: f13f2528bd317384ea553193b3d630ac, type: 3}
@@ -77,10 +75,10 @@ MonoBehaviour:
   mashingAnimatedObj: {fileID: 0}
   victorySprite: {fileID: 21300000, guid: 893c8d20d06aacb4393869f24a0b406b, type: 3}
   loseSprite: {fileID: 21300000, guid: c9ddadcc031b1df46929fbb94a73b939, type: 3}
-  barFullNb: 15
+  barFullNb: 30
   pointLoseOnMiss: 1
-  timerLevelNight: 10
-  audioLevelNight: {fileID: 8300000, guid: a39157389c9cb3643b730f360cf95947, type: 3}
+  timerLevelNight: 18
+  audioLevelNight: {fileID: 8300000, guid: 81ea026d0f47c914aa6a4a15d02937f5, type: 3}
   sfxNightList: []
   keyCodesList:
   - keyCode: 97

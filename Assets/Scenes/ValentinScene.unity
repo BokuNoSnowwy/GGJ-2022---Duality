@@ -156,11 +156,11 @@ RectTransform:
   m_Father: {fileID: 564366232}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 1, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
   m_AnchoredPosition: {x: -0.000030517578, y: 0}
   m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 1, y: 1}
+  m_Pivot: {x: 1, y: 0}
 --- !u!114 &167240313
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1332,8 +1332,40 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 423184676}
     - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
+      propertyPath: indexLevel
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
       propertyPath: mashingGame
       value: 
       objectReference: {fileID: 1532118906}
+    - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
+      propertyPath: victoryClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 4414a882af14d5d419f69917d28f6a18, type: 3}
+    - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
+      propertyPath: listLevel.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
+      propertyPath: listLevel.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a54dc4b50b86bd4ab0fe40fbae94944, type: 2}
+    - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
+      propertyPath: listLevel.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: f504a6ef33f799a4ca7260c459f28d6e, type: 2}
+    - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
+      propertyPath: listLevel.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 8bcfabbb4059ba2419d6c76cba319747, type: 2}
+    - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
+      propertyPath: listLevel.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 0c028fd5a35c9ff4eb46a9b736ea66e5, type: 2}
+    - target: {fileID: 6805173764303074070, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
+      propertyPath: listLevel.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 720bb10c277cad1449bbdeb57cbff5e4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4cced293be9cebd4eb8eeabe81dee199, type: 3}
